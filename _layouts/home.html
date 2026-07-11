@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title | default: site.title | escape }}</title>
+    <meta name="description" content="{{ site.description | escape }}">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌅</text></svg>">
+    <link rel="alternate" type="application/atom+xml" title="每日新聞彙整 RSS" href="{{ '/feed-zh.xml' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/horizon.css' | relative_url }}">
+  </head>
+  <body>
+    <main class="main-content home-content" role="main">
+      {{ content }}
+    </main>
+  </body>
+</html>
