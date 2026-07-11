@@ -4,9 +4,10 @@ services:
     container_name: horizon
     volumes:
       - ./data:/app/data
+      - ./docs:/app/docs
       - ./.env:/app/.env:ro
     environment:
-      - TZ=UTC
+      - TZ=Asia/Taipei
     restart: unless-stopped
     # Run daily at 8:00 AM UTC (adjust as needed)
     # For one-time run, use: docker compose run --rm horizon
