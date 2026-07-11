@@ -102,7 +102,7 @@ def test_generate_webhook_item_uses_localized_discussion_label():
         total=1,
     )
 
-    assert "[社区讨论](https://www.reddit.com/r/python/comments/abc123/test/)" in result
+    assert "[社群討論](https://www.reddit.com/r/python/comments/abc123/test/)" in result
 
 
 def test_generate_summary_zh_uses_localized_selection_header_and_numeric_date():
@@ -118,7 +118,7 @@ def test_generate_summary_zh_uses_localized_selection_header_and_numeric_date():
         )
     )
 
-    assert "> 从 10 条内容中筛选出 1 条重要资讯。" in result
+    assert "> 從 10 條內容中篩選出 1 條重要資訊。" in result
     assert "rss · tester · 4月25日 08:00" in result
     assert "From 10 items" not in result
     assert "Apr 25, 08:00" not in result
@@ -136,5 +136,5 @@ def test_generate_empty_summary_zh_uses_localized_analyzed_line():
         )
     )
 
-    assert "> 已分析 10 条内容，但没有达到重要性阈值的条目。" in result
+    assert "> 已分析 10 條內容，但沒有達到重要性門檻的條目。" in result
     assert "Analyzed 10 items" not in result
