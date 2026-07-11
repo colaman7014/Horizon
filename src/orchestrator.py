@@ -430,17 +430,46 @@ class HorizonOrchestrator:
 
         return merged
 
+    # Deduplicating too many items in one AI call makes the response
+    # unreliable (truncated or malformed JSON, missed groups), so large
+    # batches are split and deduplicated over multiple passes. Items are
+    # sorted by score, so duplicates of one story tend to sit next to each
+    # other and land in the same chunk.
+    TOPIC_DEDUP_CHUNK_SIZE = 25
+    TOPIC_DEDUP_MAX_PASSES = 3
+
     async def merge_topic_duplicates(self, items: List[ContentItem]) -> List[ContentItem]:
         """Merge items covering the same topic using AI semantic deduplication.
 
         This is a stable stage helper for integrations such as MCP.
 
-        Sends all item titles, tags, and summaries to AI in a single call.
         Items must already be sorted by ai_score descending so that the first
         item in each duplicate group is always the highest-scored one.
         Content (comments) from duplicate items is merged into the primary.
 
         Falls back to returning items unchanged if the AI call fails.
+        """
+        chunk = self.TOPIC_DEDUP_CHUNK_SIZE
+        current = items
+        for _ in range(self.TOPIC_DEDUP_MAX_PASSES):
+            if len(current) <= chunk:
+                return await self._merge_topic_duplicates_batch(current)
+            merged: List[ContentItem] = []
+            for start in range(0, len(current), chunk):
+                merged.extend(
+                    await self._merge_topic_duplicates_batch(current[start:start + chunk])
+                )
+            if len(merged) == len(current):
+                return merged
+            current = merged
+        return current
+
+    async def _merge_topic_duplicates_batch(self, items: List[ContentItem]) -> List[ContentItem]:
+        """Deduplicate one batch of items with a single AI call.
+
+        Sends the batch's titles, tags, and summaries to AI; retries once
+        when the response cannot be parsed (thinking models occasionally
+        exhaust the token budget or emit malformed JSON on large inputs).
         """
         if len(items) <= 1:
             return items
@@ -458,11 +487,20 @@ class HorizonOrchestrator:
 
         try:
             ai_client = create_ai_client(self.config.ai)
-            response = await ai_client.complete(
-                system=TOPIC_DEDUP_SYSTEM,
-                user=TOPIC_DEDUP_USER.format(items=items_text),
-            )
-            result = parse_json_response(response)
+            result = None
+            for attempt in range(2):
+                response = await ai_client.complete(
+                    system=TOPIC_DEDUP_SYSTEM,
+                    user=TOPIC_DEDUP_USER.format(items=items_text),
+                    max_tokens=max(self.config.ai.max_tokens, 8192),
+                )
+                result = parse_json_response(response)
+                if result is not None:
+                    break
+                if attempt == 0:
+                    self.console.print(
+                        "[yellow]  dedup: could not parse AI response, retrying[/yellow]"
+                    )
             if result is None:
                 self.console.print("[yellow]  dedup: could not parse AI response, skipping[/yellow]")
                 return items
