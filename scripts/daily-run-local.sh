@@ -9,16 +9,16 @@ export PATH="/usr/local/bin:/opt/homebrew/bin:$PATH"
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
-LOG_PREFIX="[$(date '+%Y-%m-%d %H:%M:%S')]"
+log() { echo "[$(date '+%Y-%m-%d %H:%M:%S')] $*"; }
 
 cd "$PROJECT_DIR"
-echo "$LOG_PREFIX Starting Horizon daily run..."
+log "Starting Horizon daily run..."
 
 # 1. Run the pipeline; data/ and docs/ are volume-mounted so outputs land on the host
 docker compose run --rm horizon --hours 24
 
 # 2. Deploy docs (including today's post) to gh-pages
-echo "$LOG_PREFIX Deploying to gh-pages..."
+log "Deploying to gh-pages..."
 WT=$(mktemp -d)
 cleanup() {
     cd "$PROJECT_DIR"
@@ -34,9 +34,9 @@ cd "$WT"
 git add -A
 if git commit -m "Daily Summary: $(date '+%Y-%m-%d')"; then
     git push origin gh-pages
-    echo "$LOG_PREFIX Published to gh-pages."
+    log "Published to gh-pages."
 else
-    echo "$LOG_PREFIX Nothing to commit."
+    log "Nothing to commit."
 fi
 
-echo "$LOG_PREFIX Done."
+log "Done."
