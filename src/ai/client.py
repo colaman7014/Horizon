@@ -4,6 +4,7 @@ import os
 import re
 from abc import ABC, abstractmethod
 from typing import Any, Dict, List, Optional
+import httpx
 from openai import AsyncAzureOpenAI, AsyncOpenAI
 from anthropic import AsyncAnthropic
 from google import genai
@@ -212,7 +213,14 @@ class OpenAIClient(AIClient):
         fallback = "no_key" if config.provider == AIProvider.OLLAMA else None
         api_key = _resolve_api_key(config, fallback=fallback)
 
-        kwargs = {"api_key": api_key}
+        # A hung server (e.g. a wedged local Ollama runner) can otherwise
+        # stall the whole pipeline indefinitely; fail the request instead
+        # and let per-item retry/error handling deal with it.
+        kwargs = {
+            "api_key": api_key,
+            "timeout": httpx.Timeout(600.0, connect=15.0),
+            "max_retries": 2,
+        }
         base_url = self._resolve_base_url(config)
         if base_url:
             kwargs["base_url"] = base_url
