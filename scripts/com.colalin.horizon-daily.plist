@@ -7,7 +7,7 @@
     <key>ProgramArguments</key>
     <array>
         <string>/bin/bash</string>
-        <string>/Users/colalin/Documents/repos/Horizon/scripts/daily-run-local.sh</string>
+        <string>/Users/colalin/repos/Horizon/scripts/daily-run-local.sh</string>
     </array>
     <key>StartCalendarInterval</key>
     <dict>
