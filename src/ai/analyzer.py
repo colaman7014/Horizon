@@ -10,7 +10,7 @@ from rich.progress import Progress, SpinnerColumn, BarColumn, TextColumn, MofNCo
 from .client import AIClient
 from .prompts import CONTENT_ANALYSIS_SYSTEM, CONTENT_ANALYSIS_USER
 from .utils import parse_json_response
-from ..models import ContentItem
+from ..models import ContentItem, SourceType
 
 DEFAULT_THROTTLE_SEC = 0.0
 
@@ -75,6 +75,27 @@ class ContentAnalyzer:
 
         return analyzed_items
 
+    @staticmethod
+    def _score_trending_repo(item: ContentItem) -> None:
+        """Score an OSS Insight repo by its star-momentum rank, without the LLM.
+
+        Rank 1 scores 8.0, each rank down costs 0.5 (floor 3.0), so with a 6.0
+        threshold the top 5 pass. A missing rank scores 5.0 (below threshold).
+        """
+        meta = item.metadata
+        rank = meta.get("trending_rank")
+        stars = meta.get("stars_gained", 0)
+        period = meta.get("period", "")
+        if isinstance(rank, int) and rank >= 1:
+            item.ai_score = max(3.0, 8.0 - 0.5 * (rank - 1))
+            item.ai_reason = f"GitHub trending #{rank}: +{stars} stars ({period})"
+        else:
+            item.ai_score = 5.0
+            item.ai_reason = f"GitHub trending, unranked: +{stars} stars ({period})"
+        item.ai_summary = (meta.get("description") or "").strip() or item.title
+        language = meta.get("primary_language")
+        item.ai_tags = [tag for tag in (language, "github", "trending") if tag]
+
     @retry(
         stop=stop_after_attempt(3),
         wait=wait_exponential(min=2, max=10)
@@ -85,6 +106,12 @@ class ContentAnalyzer:
         Args:
             item: Content item to analyze (modified in-place)
         """
+        # Trending repos are ranked purely by star momentum, so they get a
+        # rule-based score instead of the news-oriented LLM rubric.
+        if item.source_type == SourceType.OSSINSIGHT:
+            self._score_trending_repo(item)
+            return
+
         # Prepare content section
         content_section = ""
         if item.content:

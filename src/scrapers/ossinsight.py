@@ -56,7 +56,11 @@ class OSSInsightScraper(BaseScraper):
                 items.append(item)
 
         items.sort(key=lambda x: x.metadata.get("stars_gained", 0), reverse=True)
-        return items[: self.cfg.max_items]
+        items = items[: self.cfg.max_items]
+        for rank, item in enumerate(items, start=1):
+            item.metadata["trending_rank"] = rank
+            item.metadata["category"] = "github"
+        return items
 
     async def _fetch_period(self, period: str, language: str) -> List[dict]:
         """Call OSS Insight API for one (period, language) combo."""
