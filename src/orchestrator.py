@@ -9,6 +9,7 @@ from urllib.parse import urlparse
 import httpx
 from rich.console import Console
 
+from .dates import local_date_str
 from .models import Config, ContentItem
 from .storage.manager import StorageManager
 from .services.email import EmailManager
@@ -146,7 +147,7 @@ class HorizonOrchestrator:
             await self._enrich_important_items(important_items)
 
             # 7. Generate and save daily summaries for each configured language
-            today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+            today = local_date_str()
             for lang in self.config.ai.languages:
                 summarizer = DailySummarizer()
                 summary = await summarizer.generate_summary(important_items, today, len(all_items), language=lang)
@@ -230,7 +231,7 @@ class HorizonOrchestrator:
             # Send webhook failure notification if configured
             if self.webhook_notifier:
                 await self.webhook_notifier.send_failure(
-                    date=datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+                    date=local_date_str(),
                     error_message=str(e),
                 )
 

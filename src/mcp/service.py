@@ -23,6 +23,7 @@ from .horizon_adapter import (
     resolve_horizon_path,
 )
 from .run_store import RunStore
+from ..dates import local_date_str
 from ..services.webhook import WebhookNotifier
 
 
@@ -446,7 +447,7 @@ class HorizonPipelineService:
         )
 
         total_fetched = self._total_fetched(run_id, fallback=len(items))
-        date_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        date_str = local_date_str()
 
         summarizer = ctx.runtime.DailySummarizer()
         summary = await summarizer.generate_summary(
