@@ -5,6 +5,8 @@ title: 每日新聞彙整
 
 # 每日新聞彙整
 
+<p><a href="{{ '/github-trending/' | relative_url }}">📈 GitHub 每日趨勢 Top 10 →</a></p>
+
 <section class="daily-index" aria-labelledby="daily-complete-heading">
   <h2 id="daily-complete-heading">已完成彙整</h2>
   <ul>
