@@ -86,6 +86,23 @@ Respond with valid JSON only:
   "tags": ["<tag1>", "<tag2>", ...]
 }}"""
 
+TRENDING_TRANSLATION_SYSTEM = """You translate GitHub repository descriptions into Traditional Chinese as used in Taiwan (繁體中文，台灣用語).
+
+Rules:
+- Keep technical terms, product names, and acronyms in their original English form (e.g. "CLI", "Rust", "MCP").
+- Translate everything else naturally; do not add or remove information.
+- If a description is empty, return an empty string for it.
+- Respond with valid JSON only."""
+
+TRENDING_TRANSLATION_USER = """Translate each of the following {count} GitHub repo descriptions to Traditional Chinese. Return exactly {count} translations in the same order.
+
+{payload}
+
+Respond with valid JSON only:
+{{
+  "translations": ["<繁體中文描述1>", "<繁體中文描述2>", ...]
+}}"""
+
 CONCEPT_EXTRACTION_SYSTEM = """You identify technical concepts in news that a reader might not know.
 Given a news item, return 1-3 search queries for concepts that need explanation.
 Focus on: specific technologies, protocols, algorithms, tools, or projects that are not widely known.

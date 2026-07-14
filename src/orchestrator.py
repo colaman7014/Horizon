@@ -10,7 +10,8 @@ import httpx
 from rich.console import Console
 
 from .dates import local_date_str
-from .models import Config, ContentItem
+from .models import Config, ContentItem, SourceType
+from .services.trending_page import TrendingPageWriter
 from .storage.manager import StorageManager
 from .services.email import EmailManager
 from .services.webhook import WebhookNotifier
@@ -101,6 +102,17 @@ class HorizonOrchestrator:
                     f"🔗 Merged {len(all_items) - len(merged_items)} cross-source duplicates "
                     f"→ {len(merged_items)} unique items\n"
                 )
+
+            # 3.5 Trending repos get their own page instead of competing
+            # with news for digest slots
+            trending_items = [
+                i for i in merged_items if i.source_type == SourceType.OSSINSIGHT
+            ]
+            if trending_items:
+                merged_items = [
+                    i for i in merged_items if i.source_type != SourceType.OSSINSIGHT
+                ]
+                await self._write_trending_page(trending_items)
 
             # 4. Analyze with AI
             analyzed_items = await self._analyze_content(merged_items)
@@ -236,6 +248,23 @@ class HorizonOrchestrator:
                 )
 
             raise
+
+    async def _write_trending_page(self, items: List[ContentItem]) -> None:
+        """Render the standalone trending page; never breaks the news run."""
+        try:
+            writer = TrendingPageWriter(
+                create_ai_client(self.config.ai), console=self.console
+            )
+            path = await writer.write(items, local_date_str())
+            if path:
+                self.console.print(
+                    f"📈 GitHub trending page updated: {path} "
+                    f"(top {min(len(items), 10)} of {len(items)} repos)\n"
+                )
+        except Exception as e:
+            self.console.print(
+                f"[yellow]⚠️  Failed to write GitHub trending page: {e}[/yellow]\n"
+            )
 
     def _determine_time_window(self, force_hours: int = None) -> datetime:
         if force_hours:
