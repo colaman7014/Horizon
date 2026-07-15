@@ -109,6 +109,8 @@ class AIConfig(BaseModel):
     throttle_sec: float = 0.0
     analysis_concurrency: int = 1
     enrichment_concurrency: int = 1
+    enrichment_top_n: Optional[int] = Field(default=10, gt=0)
+    enrichment_max_tokens: int = Field(default=8192, gt=0)
     languages: List[str] = Field(default_factory=lambda: ["en"])
     # Azure OpenAI specific; required when provider == AZURE
     azure_endpoint_env: Optional[str] = None
@@ -419,6 +421,17 @@ class FilteringConfig(BaseModel):
     category_groups: Dict[str, CategoryGroupConfig] = Field(default_factory=dict)
     default_group: str = "other"
     default_group_limit: Optional[int] = Field(default=None, gt=0)
+    pre_ai_source_limits: Dict[str, int] = Field(default_factory=dict)
+
+    @field_validator("pre_ai_source_limits")
+    @classmethod
+    def validate_pre_ai_source_limits(cls, value: Dict[str, int]) -> Dict[str, int]:
+        for key, limit in value.items():
+            if not key or not key.strip():
+                raise ValueError("filtering.pre_ai_source_limits keys must be non-empty")
+            if limit <= 0:
+                raise ValueError("filtering.pre_ai_source_limits values must be positive")
+        return value
 
 
 class Config(BaseModel):

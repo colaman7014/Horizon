@@ -6,6 +6,7 @@ from dataclasses import dataclass, field
 from datetime import datetime, timedelta, timezone
 from typing import List, Dict, Optional
 from urllib.parse import urlparse
+from time import perf_counter
 import httpx
 from rich.console import Console
 
@@ -30,6 +31,7 @@ from .ai.client import create_ai_client
 from .ai.analyzer import ContentAnalyzer
 from .ai.summarizer import DailySummarizer
 from .ai.enricher import ContentEnricher
+from .ai.enrichment_policy import select_items_for_enrichment
 from .ai.tokens import get_usage_snapshot
 
 
@@ -64,6 +66,10 @@ class HorizonOrchestrator:
             else None
         )
 
+    def _log_elapsed(self, label: str, started_at: float) -> None:
+        elapsed = perf_counter() - started_at
+        self.console.print(f"⏱️ {label} completed in {elapsed:.1f}s")
+
     async def run(self, force_hours: int = None) -> None:
         """Execute the complete workflow.
 
@@ -88,7 +94,9 @@ class HorizonOrchestrator:
             self.console.print(f"📅 Fetching content since: {since.strftime('%Y-%m-%d %H:%M:%S')}\n")
 
             # 2. Fetch content from all sources
+            fetch_started = perf_counter()
             all_items = await self.fetch_all_sources(since)
+            self._log_elapsed("Fetch", fetch_started)
             self.console.print(f"📥 Fetched {len(all_items)} items from all sources\n")
 
             if not all_items:
@@ -114,8 +122,13 @@ class HorizonOrchestrator:
                 ]
                 await self._write_trending_page(trending_items)
 
+            merged_items = self.apply_pre_ai_source_limits(merged_items)
+
             # 4. Analyze with AI
+            self.console.print(f"LLM scoring candidates: {len(merged_items)}")
+            scoring_started = perf_counter()
             analyzed_items = await self._analyze_content(merged_items)
+            self._log_elapsed("AI scoring", scoring_started)
             self.console.print(f"🤖 Analyzed {len(analyzed_items)} items with AI\n")
 
             # 5. Filter by score threshold
@@ -156,7 +169,9 @@ class HorizonOrchestrator:
             self.console.print("")
 
             # 6. Search related stories + enrich with background knowledge (2nd AI pass)
+            enrichment_started = perf_counter()
             await self._enrich_important_items(important_items)
+            self._log_elapsed("Enrichment", enrichment_started)
 
             # 7. Generate and save daily summaries for each configured language
             today = local_date_str()
@@ -571,6 +586,38 @@ class HorizonOrchestrator:
 
         return [item for i, item in enumerate(items) if i not in drop_indices]
 
+    def apply_pre_ai_source_limits(self, items: List[ContentItem]) -> List[ContentItem]:
+        """Apply source-aware caps before expensive per-item AI scoring."""
+        limits = self.config.filtering.pre_ai_source_limits
+        if not limits:
+            return items
+
+        kept: List[ContentItem] = []
+        counts: Dict[str, int] = defaultdict(int)
+        removed = 0
+
+        for item in items:
+            sub_source_key = f"{item.source_type.value}/{self._sub_source_label(item)}"
+            source_key = item.source_type.value
+            limit_key = sub_source_key if sub_source_key in limits else source_key
+            limit = limits.get(limit_key)
+            if limit is None:
+                kept.append(item)
+                continue
+
+            counts[limit_key] += 1
+            if counts[limit_key] <= limit:
+                kept.append(item)
+            else:
+                removed += 1
+
+        if removed:
+            self.console.print(
+                f"⚖️ Pre-AI caps removed {removed} items "
+                f"→ {len(kept)} scoring candidates\n"
+            )
+        return kept
+
     def apply_balanced_digest(
         self,
         items: List[ContentItem],
@@ -751,8 +798,14 @@ class HorizonOrchestrator:
         self.console.print("📚 Enriching with background knowledge...")
         ai_client = create_ai_client(self.config.ai)
         enricher = ContentEnricher(ai_client)
-        await enricher.enrich_batch(items)
-        self.console.print(f"   Enriched {len(items)} items\n")
+        items_to_enrich = select_items_for_enrichment(
+            items,
+            self.config.ai.enrichment_top_n,
+        )
+        await enricher.enrich_batch(items_to_enrich)
+        self.console.print(
+            f"   Enriched {len(items_to_enrich)}/{len(items)} items\n"
+        )
 
     async def _analyze_content(self, items: List[ContentItem]) -> List[ContentItem]:
         """Analyze content items with AI.

@@ -36,6 +36,15 @@ class ContentEnricher:
         concurrency = getattr(config, "enrichment_concurrency", 1)
         return max(concurrency, 1)
 
+    def _enrichment_max_tokens(self) -> Optional[int]:
+        """Token budget for the bilingual enrichment call.
+
+        qwen3 with thinking on truncates the large enrichment JSON at the
+        default 4096 budget; a larger budget keeps the response parseable.
+        """
+        config = getattr(self.client, "config", None)
+        return getattr(config, "enrichment_max_tokens", None)
+
     async def enrich_batch(self, items: List[ContentItem]) -> None:
         """Enrich items in-place with background knowledge.
 
@@ -188,6 +197,7 @@ class ContentEnricher:
         response = await self.client.complete(
             system=CONTENT_ENRICHMENT_SYSTEM,
             user=user_prompt,
+            max_tokens=self._enrichment_max_tokens(),
         )
 
         # Parse JSON response with robust fallback
@@ -248,6 +258,7 @@ class ContentEnricher:
                     'Return JSON:\n'
                     '{"title_zh": "<繁體中文標題>", "summary_zh": "<用繁體中文寫1-2句摘要>"}'
                 ),
+                max_tokens=self._enrichment_max_tokens(),
             )
             result = self._parse_json_response(response)
             if result:

@@ -24,6 +24,7 @@ from .horizon_adapter import (
 )
 from .run_store import RunStore
 from ..dates import local_date_str
+from ..ai.enrichment_policy import select_items_for_enrichment
 from ..services.webhook import WebhookNotifier
 
 
@@ -405,7 +406,11 @@ class HorizonPipelineService:
 
         ai_client = ctx.runtime.create_ai_client(ctx.config.ai)
         enricher = ctx.runtime.ContentEnricher(ai_client)
-        await enricher.enrich_batch(items)
+        items_to_enrich = select_items_for_enrichment(
+            items,
+            ctx.config.ai.enrichment_top_n,
+        )
+        await enricher.enrich_batch(items_to_enrich)
 
         self.run_store.save_items(run_id, "enriched", items_to_dicts(items))
 
@@ -416,7 +421,8 @@ class HorizonPipelineService:
         meta = self.run_store.update_meta(
             run_id,
             {
-                "enriched_count": len(items),
+                "enriched_count": len(items_to_enrich),
+                "enrichment_input_count": len(items),
                 "citation_count": citation_count,
             },
         )

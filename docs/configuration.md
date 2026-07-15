@@ -167,14 +167,17 @@ By default, AI scoring and enrichment run one item at a time. If your API endpoi
 {
   "ai": {
     "analysis_concurrency": 4,
-    "enrichment_concurrency": 2
+    "enrichment_concurrency": 2,
+    "enrichment_top_n": 10
   }
 }
 ```
 
 - `analysis_concurrency`: Number of items scored in parallel. Default is `1`.
-- `enrichment_concurrency`: Number of high-scoring items enriched in parallel. Default is `1`.
-- Both values are clamped to a minimum of `1`.
+- `enrichment_concurrency`: Number of enriched items processed in parallel. Default is `1`.
+- `enrichment_top_n`: Number of score-selected items that receive full background enrichment. Default is `10`; set to `null` to enrich every selected item.
+- `enrichment_max_tokens`: Token budget for the bilingual enrichment call, separate from `max_tokens`. Default is `8192`. Local reasoning models such as qwen3 spend part of the budget thinking; the default `4096` scoring budget can truncate the large enrichment JSON and force a fallback to plain translation. Keep this at `8192` or higher for local thinking models, and do not disable thinking for enrichment.
+- Both concurrency values are clamped to a minimum of `1`.
 - Preserve the existing retry behavior per item.
 - Result ordering is preserved regardless of concurrency.
 - If you also use `throttle_sec`, each concurrent task sleeps independently after finishing an item.
@@ -437,7 +440,11 @@ Content is scored 0-10:
       }
     },
     "default_group": "other",
-    "default_group_limit": 3
+    "default_group_limit": 3,
+    "pre_ai_source_limits": {
+      "rss/High Volume Feed": 5,
+      "google_news": 10
+    }
   }
 }
 ```
@@ -453,6 +460,11 @@ Content is scored 0-10:
   configured group. Default is `other`.
 - `default_group_limit`: Optional positive limit for unmatched items. If omitted,
   unmatched items are unlimited except for `max_items`.
+- `pre_ai_source_limits`: Optional source-aware caps applied before AI scoring.
+  Keys can be a source type such as `google_news` or a sub-source key such as
+  `rss/High Volume Feed`, `reddit/r/MachineLearning`, `telegram/@channel`, or
+  an OpenBB watchlist name prefixed as `openbb/<watchlist>`. Values must be
+  positive integers. Exact sub-source keys override the source-type fallback.
 
 Balanced digest filtering runs after AI score threshold filtering and topic
 deduplication, but before enrichment. This reduces enrichment calls to only the

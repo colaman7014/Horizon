@@ -13,7 +13,9 @@
       "en"
     ],
     "analysis_concurrency": 5,
-    "enrichment_concurrency": 5
+    "enrichment_concurrency": 5,
+    "enrichment_top_n": 10,
+    "enrichment_max_tokens": 8192
   },
   "sources": {
     "github": [
