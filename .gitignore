@@ -63,3 +63,7 @@ todo.txt
 .ruff_cache
 .pytest_cache
 docs/github-trending.md
+
+
+# Local git worktrees
+.worktrees/
