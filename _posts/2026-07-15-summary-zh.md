@@ -1,7 +1,7 @@
 ---
 layout: default
-title: "Horizon Summary: 2026-07-16 (ZH)"
-date: 2026-07-16
+title: "Horizon Summary: 2026-07-15 (ZH)"
+date: 2026-07-15
 lang: zh
 ---
 
