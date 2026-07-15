@@ -6,34 +6,35 @@ permalink: /github-trending/
 
 # GitHub 每日趨勢 Top 10
 
-更新日期：2026-07-14（每日自動更新，依過去 24 小時星數增量排名）
+更新日期：2026-07-15（每日自動更新，依過去 24 小時星數增量排名）
 
 
-1. **[HKUDS/Vibe-Trading](https://github.com/HKUDS/Vibe-Trading)** — +6⭐ · Python
-   Vibe-Trading：您的個人交易代理
+1. **[HKUDS/Vibe-Trading](https://github.com/HKUDS/Vibe-Trading)** — +9⭐ · Python
+   Vibe-Trading: 您的個人交易代理
 
-1. **[Dicklesworthstone/destructive_command_guard](https://github.com/Dicklesworthstone/destructive_command_guard)** — +5⭐ · Rust
-   破壞性命令守衛（dcg）用於阻止代理執行危險的 git 和 shell 命令。
+1. **[MadsLorentzen/ai-job-search](https://github.com/MadsLorentzen/ai-job-search)** — +8⭐ · TypeScript
+   AI驅動的求職申請框架，基於Claude Code構建。Fork它，填入您的個人資料，讓Claude評估職位、客製化履歷、撰寫求職信，並為面試做準備。
 
-1. **[calesthio/OpenMontage](https://github.com/calesthio/OpenMontage)** — +3⭐ · Python
-   全球首個開源、agentic 影片製作系統。12 條流程、52 個工具、500+ 個代理技能。將您的 AI 程式碼助理轉變為完整的影片製作工作室。
+1. **[Dicklesworthstone/destructive_command_guard](https://github.com/Dicklesworthstone/destructive_command_guard)** — +7⭐ · Rust
+   Destructive Command Guard (dcg) 用於阻止代理執行危險的 git 和 shell 命令。
 
-1. **[stablyai/orca](https://github.com/stablyai/orca)** — +3⭐ · TypeScript
-   Orca 是用於操作平行代理群組的 ADE。使用您的訂閱運行任何程式碼代理。支援桌面與行動裝置。
+1. **[PrismML-Eng/Bonsai-demo](https://github.com/PrismML-Eng/Bonsai-demo)** — +6⭐ · Shell
+   Bonsai Demo
 
-1. **[diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)** — +3⭐ · TypeScript
-   永不中斷編碼。免費 AI 網關：單一端點，160+ 提供者（50+ 免費），連接 Claude Code、Codex、Cursor、Cline 與 Copilot 至免費的 Claude/GPT/Gemini。RTK+Caveman 堆疊壓縮節省 15-95% token，智慧自動回退，MCP/A2A，多模態 API，桌面/PWA。
+1. **[oso95/scroll-world](https://github.com/oso95/scroll-world)** — +6⭐ · JavaScript
+   能將任何品牌轉化為可捲動3D世界的技能
 
-1. **[DeusData/codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp)** — +3⭐ · C
-   高性能程式碼智慧 MCP 伺服器。將程式碼庫索引至持久化知識圖譜——平均倉庫索引時間為毫秒級。支援 158 種語言，亞毫秒查詢，節省 99% 的 token。單一靜態二進位檔，零依賴。
+1. **[hasaneyldrm/exercises-dataset](https://github.com/hasaneyldrm/exercises-dataset)** — +5⭐ · HTML
+   包含433項健身動作的全面資料集，每個條目包含名稱、類別、目標肌群、裝備、操作步驟、縮圖及動畫影片。
 
-1. **[ogulcancelik/herdr](https://github.com/ogulcancelik/herdr)** — +3⭐ · Rust
-   位於終端機中的代理多路複用器。
+1. **[HenryNdubuaku/maths-cs-ai-compendium](https://github.com/HenryNdubuaku/maths-cs-ai-compendium)** — +5⭐ · TypeScript
+   成為破解AI/ML研究工程師
 
-1. **[dnshe/DNSHE-FreeDomains](https://github.com/dnshe/DNSHE-FreeDomains)** — +3⭐ · All
-   🌐 DNSHE 官方 - 為開發者提供的穩定且免費子網域。支援 180 天續約窗口、Anycast DNS 與 REST API。（us.ci, cc.cd, de5.net, ccwu.cc）
+1. **[iOfficeAI/OfficeCLI](https://github.com/iOfficeAI/OfficeCLI)** — +5⭐ · C#
+   OfficeCLI 是第一個且最佳的辦公軟體套件，專為AI代理設計以讀取、編輯和自動化Word、Excel及PowerPoint檔案。免費、開源、單一二進位檔，無需安裝Office。
 
-1. **[oso95/scroll-world](https://github.com/oso95/scroll-world)** — +3⭐ · JavaScript
-   一種將任何品牌轉換為可捲動 3D 世界之技能。
+1. **[jamiepine/voicebox](https://github.com/jamiepine/voicebox)** — +5⭐ · TypeScript
+   開源AI語音工作室。克隆、口述、創作。
 
-1. **[x4gKing/X4G](https://github.com/x4gKing/X4G)** — +3⭐ · Python
+1. **[VoltAgent/awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills)** — +4⭐ · All
+   由官方開發團隊與社群精心挑選的1000+項代理技能集合，相容於Claude Code、Codex、Gemini CLI、Cursor等。
