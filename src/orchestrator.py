@@ -803,8 +803,16 @@ class HorizonOrchestrator:
             self.config.ai.enrichment_top_n,
         )
         await enricher.enrich_batch(items_to_enrich)
+
+        # Tail items skip enrichment but still need a Chinese title/summary,
+        # otherwise they render with their English scoring text.
+        tail = items[len(items_to_enrich):]
+        if tail:
+            await enricher.translate_batch(tail)
+
         self.console.print(
-            f"   Enriched {len(items_to_enrich)}/{len(items)} items\n"
+            f"   Enriched {len(items_to_enrich)}/{len(items)} items, "
+            f"translated {len(tail)} more\n"
         )
 
     async def _analyze_content(self, items: List[ContentItem]) -> List[ContentItem]:

@@ -76,6 +76,43 @@ class ContentEnricher:
             ]
             await asyncio.gather(*coros)
 
+    async def translate_batch(self, items: List[ContentItem]) -> None:
+        """Lightweight Traditional-Chinese translation for tail items.
+
+        Items past ``enrichment_top_n`` skip the expensive enrichment pass, but
+        only enrichment produces the ``*_zh`` fields. Without this, tail items
+        ship with their English scoring title/summary. This gives each one at
+        least a ``title_zh`` and ``detailed_summary_zh`` via the cheap
+        translation call (no web search, no concept extraction).
+
+        Args:
+            items: Content items to translate (modified in-place)
+        """
+        if not items:
+            return
+
+        concurrency = self._get_concurrency()
+        semaphore = asyncio.Semaphore(concurrency)
+
+        async def _process(item: ContentItem, progress_task) -> None:
+            async with semaphore:
+                try:
+                    await self._translate_item(item)
+                except Exception as e:
+                    print(f"Error translating item {item.id}: {e}")
+            progress.advance(progress_task)
+
+        with Progress(
+            SpinnerColumn(),
+            TextColumn("[progress.description]{task.description}"),
+            BarColumn(),
+            MofNCompleteColumn(),
+            transient=True,
+        ) as progress:
+            task = progress.add_task("Translating", total=len(items))
+            coros = [_process(item, task) for item in items]
+            await asyncio.gather(*coros)
+
     async def _web_search(self, query: str, max_results: int = 3) -> list:
         """Search the web for context via DuckDuckGo.
 
