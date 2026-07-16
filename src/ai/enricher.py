@@ -19,6 +19,7 @@ from .client import AIClient
 from .prompts import (
     CONCEPT_EXTRACTION_SYSTEM, CONCEPT_EXTRACTION_USER,
     CONTENT_ENRICHMENT_SYSTEM, CONTENT_ENRICHMENT_USER,
+    TAIWAN_GLOSSARY,
 )
 from .utils import parse_json_response
 from ..models import ContentItem
@@ -288,7 +289,11 @@ class ContentEnricher:
         translate the title and summary to Chinese so the item is not dropped."""
         try:
             response = await self.client.complete(
-                system="You are a translator. Translate to Traditional Chinese as used in Taiwan (繁體中文). Return only valid JSON, no other text.",
+                system=(
+                    "You are a translator. Translate to Traditional Chinese as used "
+                    "in Taiwan (繁體中文). Return only valid JSON, no other text."
+                    + TAIWAN_GLOSSARY
+                ),
                 user=(
                     f'Title: {item.title}\n'
                     f'Summary: {item.ai_summary or item.title}\n\n'

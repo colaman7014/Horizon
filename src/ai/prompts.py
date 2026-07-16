@@ -1,5 +1,14 @@
 """AI prompts for content analysis and summarization."""
 
+# Shared Taiwan-terminology rules appended to every prompt that produces
+# Traditional Chinese. Keeps company/product names in English (qwen otherwise
+# transliterates them to mainland forms, e.g. Nvidia → 英偉達) and steers
+# vocabulary to Taiwan usage over mainland forms.
+TAIWAN_GLOSSARY = """
+用詞規範（台灣繁體中文）：
+- 公司、產品、品牌名一律保留英文原文，不要音譯或翻成中文（例如寫「Nvidia」，不要寫「英偉達」或「輝達」；寫「Broadcom」，不要寫「博通」）。
+- 一般詞彙使用台灣慣用寫法，避免中國大陸用語：軟件→軟體、硬件→硬體、信息→資訊、程序→程式、默認→預設、視頻→影片、屏幕→螢幕、芯片→晶片、內存→記憶體、服務器→伺服器、網絡→網路、質量→品質。"""
+
 TOPIC_DEDUP_SYSTEM = """You are a news deduplication assistant. Identify groups of news items that cover the exact same real-world event, release, or announcement.
 
 Rules:
@@ -92,7 +101,7 @@ Rules:
 - Keep technical terms, product names, and acronyms in their original English form (e.g. "CLI", "Rust", "MCP").
 - Translate everything else naturally; do not add or remove information.
 - If a description is empty, return an empty string for it.
-- Respond with valid JSON only."""
+- Respond with valid JSON only.""" + TAIWAN_GLOSSARY
 
 TRENDING_TRANSLATION_USER = """Translate each of the following {count} GitHub repo descriptions to Traditional Chinese. Return exactly {count} translations in the same order.
 
@@ -157,7 +166,7 @@ Guidelines:
 - Use the web search results to ensure accuracy, especially for recent projects, tools, or events
 - If the news is self-explanatory and needs no background, return an empty string for both background fields
 - For **sources**: pick 1-3 URLs from the Web Search Results that you actually relied on for the background fields. Only use URLs that appear verbatim in the search results above — do not invent or modify URLs.
-"""
+""" + TAIWAN_GLOSSARY
 
 CONTENT_ENRICHMENT_USER = """Provide a structured bilingual analysis for the following news item.
 
