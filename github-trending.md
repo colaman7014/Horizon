@@ -6,35 +6,34 @@ permalink: /github-trending/
 
 # GitHub 每日趨勢 Top 10
 
-更新日期：2026-07-27（每日自動更新，依過去 24 小時星數增量排名）
+更新日期：2026-07-28（每日自動更新，依過去 24 小時星數增量排名）
 
 
-1. **[block/buzz](https://github.com/block/buzz)** — +9⭐ · Rust
-   一種群體意識溝通平台
+1. **[img2threejs/img2threejs](https://github.com/img2threejs/img2threejs)** — +8⭐ · Python
+   將參考圖片中的物件重建為僅使用程式碼、程序化生成、經過品質把關且可直接用於動畫的 Three.js 模型。省 token 的圖像轉 3D 方案。
 
-1. **[CoreBunch/Instatic](https://github.com/CoreBunch/Instatic)** — +7⭐ · TypeScript
-   Instatic 是一款現代化自託管視覺化 CMS，1分鐘內即可啟動運行。
+1. **[andrewyng/openworker](https://github.com/andrewyng/openworker)** — +7⭐ · Python
 
-1. **[floci-io/floci](https://github.com/floci-io/floci)** — +6⭐ · Java
-   輕量、輕盈且永遠免費——AWS 本機模擬器的替代方案。
+1. **[OpenMinis/OpenMinis](https://github.com/OpenMinis/OpenMinis)** — +6⭐ · All
+   OpenMinis — 跨平台的 AI Agent 應用程式。即將開放原始碼。
 
-1. **[agentscope-ai/QwenPaw](https://github.com/agentscope-ai/QwenPaw)** — +6⭐ · Python
-   您的個人 AI 助理；安裝簡便，可部署於本機或雲端；支援多種聊天應用程式，並具備易於擴充的功能。
+1. **[citrolabs/ego-lite](https://github.com/citrolabs/ego-lite)** — +6⭐ · JavaScript
+   讓使用者與 AI agent 能平行運作的最佳瀏覽器。
 
-1. **[diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)** — +5⭐ · TypeScript
-   讓程式開發不間斷。免費 MIT 授權 AI 閘道器：單一端點、290+ 供應商（90+ 免費）、500+ 模型——Kimi、Claude、GPT、OpenAI、Gemini、GLM、DeepSeek、MiniMax。相容於 Claude Code、Codex、Cursor、OpenCode、Cline 與 Copilot。具備配額感知自動備援機制，RTK+Caveman 壓縮技術可節省 15-95% token，支援 MCP/A2A、桌面版與 PWA。由 500 多位貢獻者共同開發。
+1. **[pbakaus/impeccable](https://github.com/pbakaus/impeccable)** — +5⭐ · JavaScript
+   讓您的 AI harness 具備更佳設計能力的設計語言。
 
-1. **[stablyai/orca](https://github.com/stablyai/orca)** — +4⭐ · TypeScript
-   Orca 是專為管理平行代理程式群組而設計的 ADE。您可透過自有訂閱方案執行任意編碼代理程式。已推出桌面版與行動版。
+1. **[agentscope-ai/QwenPaw](https://github.com/agentscope-ai/QwenPaw)** — +5⭐ · Python
+   您的個人 AI 助理；安裝簡便，可部署於本機或雲端；支援多種聊天應用程式，且具備易於擴充的功能。
 
-1. **[1jehuang/jcode](https://github.com/1jehuang/jcode)** — +4⭐ · Rust
-   專為程式碼打造的最智慧代理程式框架。
+1. **[alibaba/open-code-review](https://github.com/alibaba/open-code-review)** — +4⭐ · Go
+   開放原始碼且免費 — 已在 Alibaba 規模下實戰驗證。混合架構程式碼審查工具：確定性管線 + LLM Agent，精確的行級註解，內建微調規則集（NPE、執行緒安全、XSS、SQL injection），相容 OpenAI 與 Anthropic。
 
-1. **[heygen-com/hyperframes](https://github.com/heygen-com/hyperframes)** — +4⭐ · TypeScript
-   撰寫 HTML。渲染影片。專為代理程式打造。
+1. **[pascalorg/editor](https://github.com/pascalorg/editor)** — +3⭐ · TypeScript
+   建立並分享 3D 建築專案。
 
-1. **[iOfficeAI/OfficeCLI](https://github.com/iOfficeAI/OfficeCLI)** — +4⭐ · C#
-   OfficeCLI 是首款且最佳專為 AI 代理程式設計的 Office 套裝軟體，用於讀取、編輯與自動化處理 Word、Excel 和 PowerPoint 檔案。免費、開源、單一執行檔，無需安裝 Office。
+1. **[guohuiyuan/go-music-dl](https://github.com/guohuiyuan/go-music-dl)** — +3⭐ · Go
+   基於 Go 語言的全網音樂搜尋與下載工具。支援 CLI 命令列與 Web 服務雙模式，內建網易雲、QQ、酷狗、Bilibili、汽水音樂等 10 餘個主流平台，支援多來源並行搜尋與無損音質解析。music-dl交流群：755087923
 
-1. **[Yuan1z0825/nature-skills](https://github.com/Yuan1z0825/nature-skills)** — +3⭐ · Python
-   符合 Nature 論文學術表達與科研繪圖的 Skill。
+1. **[hugohe3/ppt-master](https://github.com/hugohe3/ppt-master)** — +3⭐ · Python
+   AI 將文件或主題轉換為真正的原生 PowerPoint 簡報，包含原生圖形、轉場與動畫、依需求生成的數據驅動圖表與表格、講者備註的語音旁白，以及支援您自訂的 .pptx 範本。· by Hugo He
