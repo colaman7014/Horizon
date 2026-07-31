@@ -6,35 +6,34 @@ permalink: /github-trending/
 
 # GitHub 每日趨勢 Top 10
 
-更新日期：2026-07-31（每日自動更新，依過去 24 小時星數增量排名）
+更新日期：2026-08-01（每日自動更新，依過去 24 小時星數增量排名）
 
 
-1. **[virgiliojr94/book-to-skill](https://github.com/virgiliojr94/book-to-skill)** — +10⭐ · Python
-   將任何技術書籍的 PDF 轉換成 Claude Code 技能，隨時準備好供你學習、參考與工作時使用。
+1. **[block/buzz](https://github.com/block/buzz)** — +5⭐ · Rust
+   A hive mind communication platform
 
-1. **[stablyai/orca](https://github.com/stablyai/orca)** — +9⭐ · TypeScript
-   Orca 是管理平行代理程式的 ADE。使用你自己的訂閱方案即可執行任何編碼代理程式。支援桌面端與行動裝置端。
+1. **[stablyai/orca](https://github.com/stablyai/orca)** — +5⭐ · TypeScript
+   Orca is the ADE for working with a fleet of parallel agents. Run any coding agent with your own subscription. Available on desktop and mobile.
 
-1. **[block/buzz](https://github.com/block/buzz)** — +4⭐ · Rust
-   蜂群心智通訊平台
+1. **[zhaoxuya520/reverse-skill](https://github.com/zhaoxuya520/reverse-skill)** — +3⭐ · PowerShell
+   Reverse Engineering / Authorized Penetration Testing / Security Research Skill Router Pack AI-powered routing + On-demand toolchain bootstrapping + Self-evolving knowledge base  Supports Claude Code, Kiro, Cursor, Cline, and other AI coding clients 逆向/渗透/安全技能路由包 - AI 自动路由 + 按需自举工具链 + 自动进化经验库 | 支持 Claude Code / Kiro / Cursor / Cline 等代码 AI 客户端
 
-1. **[1jehuang/jcode](https://github.com/1jehuang/jcode)** — +4⭐ · Rust
-   RAM 效率最高的框架
+1. **[WilonityLoader/Wilonity](https://github.com/WilonityLoader/Wilonity)** — +3⭐ · All
+   Wilonity Loader — a unified library of game hacks.
 
-1. **[opengeos/GeoLibre](https://github.com/opengeos/GeoLibre)** — +4⭐ · TypeScript
-   一款輕量級、雲端原生的 GIS 平台，用於視覺化、探索與分析地理空間資料。支援在網頁瀏覽器、桌面端、行動裝置以及 Jupyter 筆記本中運行。
+1. **[andrewyng/openworker](https://github.com/andrewyng/openworker)** — +3⭐ · Python
 
-1. **[pascalorg/editor](https://github.com/pascalorg/editor)** — +4⭐ · TypeScript
-   建立並分享 3D 建築專案。
+1. **[jamiepine/voicebox](https://github.com/jamiepine/voicebox)** — +3⭐ · TypeScript
+   The open-source AI voice studio. Clone, dictate, create.
 
-1. **[CoreBunch/Instatic](https://github.com/CoreBunch/Instatic)** — +4⭐ · TypeScript
-   Instatic 是一款現代化的自託管視覺化 CMS，一分鐘內即可部署運行。
+1. **[hugohe3/ppt-master](https://github.com/hugohe3/ppt-master)** — +3⭐ · Python
+   AI turns documents or topics into real, native PowerPoint decks—with native shapes, transitions and animations, data-backed charts and tables on demand, audio narration from speaker notes, and support for your own .pptx templates. · by Hugo He
 
-1. **[usestrix/strix](https://github.com/usestrix/strix)** — +4⭐ · Python
-   開源 AI 滲透測試工具，用於發現並修復應用程式的漏洞。
+1. **[pascalorg/editor](https://github.com/pascalorg/editor)** — +2⭐ · TypeScript
+   Create and share 3D architectural projects.
 
-1. **[different-ai/openwork](https://github.com/different-ai/openwork)** — +3⭐ · TypeScript
-   Claude Cowork 的開源替代品（由 opencode 驅動）
+1. **[agentscope-ai/QwenPaw](https://github.com/agentscope-ai/QwenPaw)** — +2⭐ · Python
+   Your Personal AI Assistant; easy to install, deploy on your own machine or on the cloud; supports multiple chat apps with easily extensible capabilities.
 
-1. **[bryanthaboi/gen1recomp](https://github.com/bryanthaboi/gen1recomp)** — +3⭐ · C
-   Gen1Recomp - 以原生 Lua / LÖVE2D 重製的 Gen 1 Poke
+1. **[virgiliojr94/book-to-skill](https://github.com/virgiliojr94/book-to-skill)** — +2⭐ · Python
+   Turn any technical book PDF into a Claude Code skill — ready to study, reference, and use while you work.
