@@ -6,34 +6,35 @@ permalink: /github-trending/
 
 # GitHub 每日趨勢 Top 10
 
-更新日期：2026-08-01（每日自動更新，依過去 24 小時星數增量排名）
+更新日期：2026-08-02（每日自動更新，依過去 24 小時星數增量排名）
 
 
-1. **[block/buzz](https://github.com/block/buzz)** — +5⭐ · Rust
-   A hive mind communication platform
+1. **[yc-software/qm](https://github.com/yc-software/qm)** — +5⭐ · TypeScript
+   用於工作的多人代理工具組
 
-1. **[stablyai/orca](https://github.com/stablyai/orca)** — +5⭐ · TypeScript
-   Orca is the ADE for working with a fleet of parallel agents. Run any coding agent with your own subscription. Available on desktop and mobile.
+1. **[firecrawl/pdf-inspector](https://github.com/firecrawl/pdf-inspector)** — +4⭐ · Rust
+   用於 PDF 檢查、分類與文字擷取的快速 Rust 函式庫。能智慧偵測掃描版與純文字版 PDF，以支援智慧路由決策。
 
-1. **[zhaoxuya520/reverse-skill](https://github.com/zhaoxuya520/reverse-skill)** — +3⭐ · PowerShell
-   Reverse Engineering / Authorized Penetration Testing / Security Research Skill Router Pack AI-powered routing + On-demand toolchain bootstrapping + Self-evolving knowledge base  Supports Claude Code, Kiro, Cursor, Cline, and other AI coding clients 逆向/渗透/安全技能路由包 - AI 自动路由 + 按需自举工具链 + 自动进化经验库 | 支持 Claude Code / Kiro / Cursor / Cline 等代码 AI 客户端
+1. **[unicity-aos/aos-ce](https://github.com/unicity-aos/aos-ce)** — +3⭐ · Rust
+   AOS 社群版：開放式代理作業系統。
 
-1. **[WilonityLoader/Wilonity](https://github.com/WilonityLoader/Wilonity)** — +3⭐ · All
-   Wilonity Loader — a unified library of game hacks.
+1. **[block/buzz](https://github.com/block/buzz)** — +2⭐ · Rust
+   集體意識通訊平台
 
-1. **[andrewyng/openworker](https://github.com/andrewyng/openworker)** — +3⭐ · Python
+1. **[cwuom/NeriPlayer](https://github.com/cwuom/NeriPlayer)** — +2⭐ · Kotlin
+   結合多來源串流、本機控制、豐富歌詞與自建同步功能的原生 Android 音訊播放器。/ ✨ 一款將多源線上播放、本機管理、歌詞體驗與自建同步融入原生 Android 的音訊播放器 🎵
 
-1. **[jamiepine/voicebox](https://github.com/jamiepine/voicebox)** — +3⭐ · TypeScript
-   The open-source AI voice studio. Clone, dictate, create.
+1. **[HKUDS/DeepTutor](https://github.com/HKUDS/DeepTutor)** — +2⭐ · Python
+   DeepTutor：終身個人化輔導。https://deeptutor.info/.
 
-1. **[hugohe3/ppt-master](https://github.com/hugohe3/ppt-master)** — +3⭐ · Python
-   AI turns documents or topics into real, native PowerPoint decks—with native shapes, transitions and animations, data-backed charts and tables on demand, audio narration from speaker notes, and support for your own .pptx templates. · by Hugo He
+1. **[mekos2772/ios-location-spoofer](https://github.com/mekos2772/ios-location-spoofer)** — +2⭐ · JavaScript
+   無需越獄即可偽造 GPS 位置的獨立 iOS 應用程式。內含 Shadowrocket/Surge/Loon/QX/Stash 模組。
 
-1. **[pascalorg/editor](https://github.com/pascalorg/editor)** — +2⭐ · TypeScript
-   Create and share 3D architectural projects.
+1. **[ArvinLovegood/go-stock](https://github.com/ArvinLovegood/go-stock)** — +2⭐ · Go
+   🦄🦄🦄 AI 驅動股票分析：由 AI 加持的股票分析／選股工具。提供股票行情取得、AI 熱門資訊分析、AI 資金／財務分析與漲跌警報推播。支援 A 股、港股、美股。具備市場整體與個股情緒分析、AI 輔助選股等功能。所有資料皆保留於本機。支援 DeepSeek、OpenAI、Ollama、LMStudio、AnythingLLM、SiliconFlow、Volcano Ark、Alibaba Cloud Bailian 等平台或模型。
 
-1. **[agentscope-ai/QwenPaw](https://github.com/agentscope-ai/QwenPaw)** — +2⭐ · Python
-   Your Personal AI Assistant; easy to install, deploy on your own machine or on the cloud; supports multiple chat apps with easily extensible capabilities.
+1. **[stablyai/orca](https://github.com/stablyai/orca)** — +1⭐ · TypeScript
+   Orca 是管理平行代理群隊的工作環境（ADE）。使用您自己的訂閱方案即可執行任何編碼代理。支援桌面版與行動版。
 
-1. **[virgiliojr94/book-to-skill](https://github.com/virgiliojr94/book-to-skill)** — +2⭐ · Python
-   Turn any technical book PDF into a Claude Code skill — ready to study, reference, and use while you work.
+1. **[bryanthaboi/gen1recomp](https://github.com/bryanthaboi/gen1recomp)** — +1⭐ · C
+   Gen1Recomp - 以原生 Lua／LÖVE2D 重製的初代 Pokemon。
