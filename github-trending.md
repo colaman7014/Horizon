@@ -6,34 +6,35 @@ permalink: /github-trending/
 
 # GitHub 每日趨勢 Top 10
 
-更新日期：2026-08-04（每日自動更新，依過去 24 小時星數增量排名）
+更新日期：2026-08-05（每日自動更新，依過去 24 小時星數增量排名）
 
 
-1. **[zhaoxuya520/reverse-skill](https://github.com/zhaoxuya520/reverse-skill)** — +6⭐ · PowerShell
-   逆向工程／授權滲透測試／安全研究技能路由包｜AI 驅動路由＋按需工具鏈引導＋自我進化知識庫｜支援 Claude Code、Kiro、Cursor、Cline 及其他 AI 程式碼開發工具
+1. **[zhaoxuya520/reverse-skill](https://github.com/zhaoxuya520/reverse-skill)** — +7⭐ · PowerShell
+   逆向工程 / 授權滲透測試 / 安全研究技能路由套件｜AI 驅動路由 + 按需工具鏈建置 + 自我進化知識庫｜支援 Claude Code、Kiro、Cursor、Cline 及其他 AI 程式碼客戶端
 
-1. **[yc-software/qm](https://github.com/yc-software/qm)** — +5⭐ · TypeScript
-   用於工作的多人智能體運行框架
+1. **[yc-software/qm](https://github.com/yc-software/qm)** — +6⭐ · TypeScript
+   用於工作的多人智能體框架
 
-1. **[baidu/Unlimited-OCR](https://github.com/baidu/Unlimited-OCR)** — +3⭐ · Python
-   Unlimited OCR Works：歡迎邁入單次長程解析的時代。
+1. **[firecrawl/pdf-inspector](https://github.com/firecrawl/pdf-inspector)** — +4⭐ · Rust
+   用於 PDF 檢查、分類與文字擷取的快速 Rust 函式庫。智慧偵測掃描版與純文字版 PDF，以支援智能路由決策。
 
-1. **[TencentCloud/TencentDB-Agent-Memory](https://github.com/TencentCloud/TencentDB-Agent-Memory)** — +3⭐ · TypeScript
-   TencentDB Agent Memory 是一款團隊級別的 AI 智能體記憶中樞——將對話、文件與程式碼轉化為四種可重複使用的記憶資產（Chat Memory、Skill、LLM-Wiki、Code-Graph），並跨智能體與框架進行管理、共享與調用。
+1. **[Alishahryar1/free-claude-code](https://github.com/Alishahryar1/free-claude-code)** — +3⭐ · Python
+   透過終端機、應用程式、IDE 或手機免費使用 Claude Code、Codex 與 Pi，體驗如同 OpenClaw 般的功能（支援語音）
 
-1. **[firecrawl/pdf-inspector](https://github.com/firecrawl/pdf-inspector)** — +3⭐ · Rust
-   用於 PDF 檢查、分類與文字擷取的快速 Rust 函式庫。可智慧偵測掃描版與純文字版 PDF，進而做出智慧路由決策。
+1. **[iOfficeAI/OfficeCLI](https://github.com/iOfficeAI/OfficeCLI)** — +3⭐ · C#
+   OfficeCLI 是首款且最佳的 Office 辦公套件，專為 AI 智能體打造，用於讀取、編輯與自動化處理 Word、Excel 和 PowerPoint 檔案。免費開源，提供單一執行檔，無需安裝 Office。
 
-1. **[Yuan1z0825/nature-skills](https://github.com/Yuan1z0825/nature-skills)** — +2⭐ · Python
-   符合 Nature 論文學術表達與科研繪圖的 Skill
+1. **[virgiliojr94/book-to-skill](https://github.com/virgiliojr94/book-to-skill)** — +3⭐ · Python
+   將任何技術書籍的 PDF 轉換為 Claude Code 技能，隨時準備好用於學習、查閱與工作時參考。
 
-1. **[huangruiteng/loopx](https://github.com/huangruiteng/loopx)** — +2⭐ · Python
-   專為長時間運行的 AI 智能體團隊設計的輕量級迴圈工程狀態核心。跨 Codex、Claude Code 及其他程式碼開發智能體皆相容，具備持久目標、依配額自動喚醒、可執行待辦事項、證據日誌與可驗證交接功能。
+1. **[jamiepine/voicebox](https://github.com/jamiepine/voicebox)** — +3⭐ · TypeScript
+   開源 AI 語音工作室。語音克隆、口述轉錄、內容創作。
 
-1. **[andrewyng/openworker](https://github.com/andrewyng/openworker)** — +2⭐ · Python
+1. **[esengine/DeepSeek-Reasonix](https://github.com/esengine/DeepSeek-Reasonix)** — +3⭐ · Go
+   專為終端機設計的 DeepSeek 原生 AI 程式碼智能體。以 prefix-cache 穩定性為核心打造，設定後即可讓其持續執行。
 
-1. **[tirth8205/code-review-graph](https://github.com/tirth8205/code-review-graph)** — +2⭐ · Python
-   專為 MCP 與 CLI 打造的本地優先程式碼智慧圖譜。建立您程式碼庫的持久化索引，讓 AI 程式碼工具僅讀取關鍵內容，並在程式碼審查與大型倉庫工作流程中，經基準測試驗證可大幅降低上下文負載。
+1. **[browser-use/video-use](https://github.com/browser-use/video-use)** — +3⭐ · Python
+   使用程式碼智能體編輯影片
 
-1. **[open-jarvis/OpenJarvis](https://github.com/open-jarvis/OpenJarvis)** — +2⭐ · Python
-   個人 AI，運行於個人裝置上
+1. **[zhulin025/Codex-QQ-Skin](https://github.com/zhulin025/Codex-QQ-Skin)** — +2⭐ · JavaScript
+   Codex 主題生成器（內建復古 QQ 風格主題）
