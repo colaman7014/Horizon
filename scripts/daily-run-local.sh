@@ -11,10 +11,31 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
 log() { echo "[$(date '+%Y-%m-%d %H:%M:%S')] $*"; }
 
+ensure_docker_ready() {
+    local app_name="${ORBSTACK_APP_NAME:-OrbStack}"
+    local timeout="${DOCKER_READY_TIMEOUT_SECONDS:-600}"
+    local interval="${DOCKER_READY_INTERVAL_SECONDS:-5}"
+    local deadline=$((SECONDS + timeout))
+
+    log "Ensuring OrbStack/Docker is ready..."
+    open -gj -a "$app_name" || true
+
+    until docker info >/dev/null 2>&1; do
+        if ((SECONDS >= deadline)); then
+            log "Docker did not become ready within ${timeout} seconds."
+            exit 1
+        fi
+        sleep "$interval"
+    done
+
+    log "Docker is ready."
+}
+
 cd "$PROJECT_DIR"
 log "Starting Horizon daily run..."
 
-# 1. Run the pipeline; data/ and docs/ are volume-mounted so outputs land on the host
+# 1. Ensure Docker is awake before running the pipeline; data/ and docs/ are volume-mounted so outputs land on the host
+ensure_docker_ready
 docker compose run --rm horizon --hours 24
 
 # 2. Deploy docs (including today's post) to gh-pages
