@@ -63,3 +63,9 @@ def test_home_layout_does_not_render_cayman_project_chrome() -> None:
     assert "View on GitHub" not in layout
     assert "site-footer" not in layout
     assert "{{ content }}" in layout
+
+
+def test_jekyll_excludes_internal_superpowers_documents() -> None:
+    config = read(CONFIG)
+
+    assert '  - "superpowers"' in config
