@@ -143,6 +143,29 @@ For remote Ollama servers, set `ai.base_url` in `data/config.json` or set
 also recognized. If the value omits `/v1`, Horizon appends it automatically
 for Ollama's OpenAI-compatible endpoint.
 
+For Ollama reasoning models, `reasoning_effort` is optional. When set, Horizon
+passes the value through the OpenAI-compatible request; when omitted, it does
+not send the field:
+
+```json
+{
+  "ai": {
+    "provider": "ollama",
+    "model": "nemotron-3.5-lightning:30b-mlx",
+    "reasoning_effort": "none"
+  }
+}
+```
+
+Use only values supported by the selected Ollama model. This setting is ignored
+for non-Ollama providers.
+
+During bilingual enrichment, Horizon validates required Traditional-Chinese
+fields, Taiwan terminology, community summaries when comments are present, and
+citations against the actual search-result URLs. A failed validation triggers
+one corrective generation attempt; citation URLs are never accepted unless
+they exactly match a search result.
+
 ### AI throttling
 
 If your model has a strict per-minute request cap, you can slow the scorer down in `data/config.json`:
