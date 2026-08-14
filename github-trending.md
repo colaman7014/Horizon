@@ -6,34 +6,34 @@ permalink: /github-trending/
 
 # GitHub 每日趨勢 Top 10
 
-更新日期：2026-08-14（每日自動更新，依過去 24 小時星數增量排名）
+更新日期：2026-08-15（每日自動更新，依過去 24 小時星數增量排名）
 
 
-1. **[guillaumemeyer/watermarks-remover](https://github.com/guillaumemeyer/watermarks-remover)** — +23⭐ · Python
-   移除多供應商 AI 踪跡：Unicode 文字清理、統計重寫鉤子，以及 PNG/JPEG/SVG/PDF/DOCX/HTML/MD 的 C2PA/元數據
+1. **[cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design)** — +18⭐ · HTML
+   29 editorial diagram types for Claude Code. Self-contained HTML + SVG. No shadows, no Mermaid-slop.
 
-1. **[cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design)** — +16⭐ · HTML
-   Claude Code 的 29 個編輯圖表類型。自包含 HTML + SVG。無陰影，無 Mermaid 雜質。
+1. **[guillaumemeyer/watermarks-remover](https://github.com/guillaumemeyer/watermarks-remover)** — +15⭐ · Python
+   Strip multi-vendor AI provenance marks: Unicode text hygiene, statistical rewrite hooks, and C2PA/metadata from PNG/JPEG/SVG/PDF/DOCX/HTML/MD
 
-1. **[hugohe3/ppt-master](https://github.com/hugohe3/ppt-master)** — +8⭐ · Python
-   AI 將文檔或主題轉化為真實、原生的 PowerPoint 投影片——附原生形狀、過渡效果和動畫、即時數據圖表與表格、來自講者備註的音頻敘述，以及對自定義 .pptx 模板的支援。· 由 Hugo He
+1. **[titanwings/colleague-skill](https://github.com/titanwings/colleague-skill)** — +7⭐ · Python
+   将冰冷的离别化为温暖的 Skill，欢迎加入数字生命1.0！Transforming cold farewells into warm skills? It's giving rebirth era. Welcome to Digital Life 1.0. 🫶
 
-1. **[every-app/open-seo](https://github.com/every-app/open-seo)** — +6⭐ · TypeScript
-   Semrush 和 Ahrefs 的開源替代方案
+1. **[TencentCloud/TencentDB-Agent-Memory](https://github.com/TencentCloud/TencentDB-Agent-Memory)** — +6⭐ · TypeScript
+   TencentDB Agent Memory is a team-level memory hub for AI Agents — turning conversations, docs, and code into four reusable memory assets (Chat Memory, Skill, LLM-Wiki, Code-Graph) that are governed, shared, and equipped across agents and frameworks.
 
-1. **[JustVugg/colibri](https://github.com/JustVugg/colibri)** — +4⭐ · C
-   在您擁有的硬體上運行前沿 MoE 模型——純 C 語言，零依賴，從磁盤流式傳送專家。微小引擎，巨大模型。🐦
+1. **[vercel-labs/deepsec](https://github.com/vercel-labs/deepsec)** — +6⭐ · TypeScript
+   Deepsec is a security harness for finding vulnerabilities in your codebase powered by coding agents
 
-1. **[macro-inc/macro](https://github.com/macro-inc/macro)** — +4⭐ · Rust
-   Macro 是一個團隊統一工作空間：郵件、聊天、文檔、任務、代理、通話和 CRM —— 透過共享 AI 記憶體與 @ 符號連結在一起。
+1. **[lightningpixel/modly](https://github.com/lightningpixel/modly)** — +6⭐ · TypeScript
+   Desktop app to generate 3D models from images using local AI — runs entirely on your GPU
 
-1. **[repowise-dev/repowise](https://github.com/repowise-dev/repowise)** — +4⭐ · Python
-   面向 AI 和人類的代碼庫智能：代碼健康評分、自動生成文檔、Git 分析、死代碼檢測，以及通過 MCP 的架構決策。
+1. **[iOfficeAI/OfficeCLI](https://github.com/iOfficeAI/OfficeCLI)** — +5⭐ · C#
+   OfficeCLI is the first and best Office suite  purpose-built for AI agents to read, edit, and automate Word, Excel, and PowerPoint files. Free, open-source, single binary, no Office installation required.
 
-1. **[firecrawl/anydoc](https://github.com/firecrawl/anydoc)** — +4⭐ · Rust
-   將 Word、PowerPoint、Excel、OpenDocument、RTF、EPUB、CSV 和 PDF 轉換為乾淨的 Markdown。使用 Rust 編寫，並提供 Node.js 和 Python 綁定。
+1. **[cactus-compute/needle](https://github.com/cactus-compute/needle)** — +5⭐ · Python
+   14MB foundation model for tiny devices; phones, wearables, smart home, and robots.
 
-1. **[PrimeIntellect-ai/prime-agent](https://github.com/PrimeIntellect-ai/prime-agent)** — +4⭐ · TypeScript
-   一個用於編碼工作流程和長時間自主任務的自我改進 RLM 代理。
+1. **[arvin341az-glitch/RVG](https://github.com/arvin341az-glitch/RVG)** — +4⭐ · Python
 
-1. **[Zeejay0/gathered-scenes-zine-skill](https://github.com/Zeejay0/gathered-scenes-zine-skill)** — +4⭐ · All
+1. **[block/buzz](https://github.com/block/buzz)** — +4⭐ · Rust
+   A hive mind communication platform
