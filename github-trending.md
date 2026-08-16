@@ -6,34 +6,35 @@ permalink: /github-trending/
 
 # GitHub 每日趨勢 Top 10
 
-更新日期：2026-08-15（每日自動更新，依過去 24 小時星數增量排名）
+更新日期：2026-08-17（每日自動更新，依過去 24 小時星數增量排名）
 
 
-1. **[cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design)** — +18⭐ · HTML
-   29 editorial diagram types for Claude Code. Self-contained HTML + SVG. No shadows, no Mermaid-slop.
+1. **[anywhere-labs/deepseek-harness-desktop](https://github.com/anywhere-labs/deepseek-harness-desktop)** — +7⭐ · TypeScript
+   基於官方 DeepSeek Harness 打造的 Electron 桌面端，深度適配 macOS 與 Windows，提供最佳、開箱即用的體驗。
 
-1. **[guillaumemeyer/watermarks-remover](https://github.com/guillaumemeyer/watermarks-remover)** — +15⭐ · Python
-   Strip multi-vendor AI provenance marks: Unicode text hygiene, statistical rewrite hooks, and C2PA/metadata from PNG/JPEG/SVG/PDF/DOCX/HTML/MD
+1. **[cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design)** — +5⭐ · HTML
+   Claude Code 的 29 種編輯圖表類型。自包含的 HTML + SVG。不使用陰影，也不含 Mermaid 混亂。
 
-1. **[titanwings/colleague-skill](https://github.com/titanwings/colleague-skill)** — +7⭐ · Python
-   将冰冷的离别化为温暖的 Skill，欢迎加入数字生命1.0！Transforming cold farewells into warm skills? It's giving rebirth era. Welcome to Digital Life 1.0. 🫶
+1. **[lidge-jun/opencodex](https://github.com/lidge-jun/opencodex)** — +4⭐ · TypeScript
+   OpenAI Codex 與 Claude Code 的通用供應商代理—使用任何 LLM（Claude、Gemini、Grok、DeepSeek、Ollama…）與 Codex CLI、App、SDK 及 Claude Code 搭配。
 
-1. **[TencentCloud/TencentDB-Agent-Memory](https://github.com/TencentCloud/TencentDB-Agent-Memory)** — +6⭐ · TypeScript
-   TencentDB Agent Memory is a team-level memory hub for AI Agents — turning conversations, docs, and code into four reusable memory assets (Chat Memory, Skill, LLM-Wiki, Code-Graph) that are governed, shared, and equipped across agents and frameworks.
+1. **[emilkowalski/skills](https://github.com/emilkowalski/skills)** — +3⭐ · All
+   設計工程師的技能。
 
-1. **[vercel-labs/deepsec](https://github.com/vercel-labs/deepsec)** — +6⭐ · TypeScript
-   Deepsec is a security harness for finding vulnerabilities in your codebase powered by coding agents
+1. **[12britz/awesome-free-models](https://github.com/12britz/awesome-free-models)** — +2⭐ · All
+   一份精選的免費 AI 模型、API 與工具清單，您可無須支付任何費用即可使用。
 
-1. **[lightningpixel/modly](https://github.com/lightningpixel/modly)** — +6⭐ · TypeScript
-   Desktop app to generate 3D models from images using local AI — runs entirely on your GPU
+1. **[HKUDS/CLI-Anything](https://github.com/HKUDS/CLI-Anything)** — +2⭐ · Python
+   "CLI-Anything：打造所有軟體代理原生化" — CLI-Hub：https://clianything.cc/
 
-1. **[iOfficeAI/OfficeCLI](https://github.com/iOfficeAI/OfficeCLI)** — +5⭐ · C#
-   OfficeCLI is the first and best Office suite  purpose-built for AI agents to read, edit, and automate Word, Excel, and PowerPoint files. Free, open-source, single binary, no Office installation required.
+1. **[ChartGPU/ChartGPU](https://github.com/ChartGPU/ChartGPU)** — +2⭐ · TypeScript
+   美觀、開源且基於 WebGPU 的圖表庫
 
-1. **[cactus-compute/needle](https://github.com/cactus-compute/needle)** — +5⭐ · Python
-   14MB foundation model for tiny devices; phones, wearables, smart home, and robots.
+1. **[different-ai/openwork](https://github.com/different-ai/openwork)** — +2⭐ · TypeScript
+   Claude Cowork（由 opencode 驅動）的開源替代方案
 
-1. **[arvin341az-glitch/RVG](https://github.com/arvin341az-glitch/RVG)** — +4⭐ · Python
+1. **[guillaumemeyer/watermarks-remover](https://github.com/guillaumemeyer/watermarks-remover)** — +2⭐ · Python
+   剔除多供應商 AI 來源標記：Unicode 文本衛生、統計重寫鉤子，以及從 PNG/JPEG/SVG/PDF/DOCX/HTML/MD 擷取的 C2PA/metadata
 
-1. **[block/buzz](https://github.com/block/buzz)** — +4⭐ · Rust
-   A hive mind communication platform
+1. **[internet-court/internet-court-skill](https://github.com/internet-court/internet-court-skill)** — +2⭐ · TypeScript
+   代理對代理商業的信任層—自然語言授權、ERC-7710 代表性權限、x402 支付、托管以及爭議解決，作為一個開放且通用的 Agent Skill / Claude Code 插件。
