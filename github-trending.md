@@ -6,35 +6,35 @@ permalink: /github-trending/
 
 # GitHub 每日趨勢 Top 10
 
-更新日期：2026-08-19（每日自動更新，依過去 24 小時星數增量排名）
+更新日期：2026-08-20（每日自動更新，依過去 24 小時星數增量排名）
 
 
-1. **[anywhere-labs/deepseek-harness-desktop](https://github.com/anywhere-labs/deepseek-harness-desktop)** — +12⭐ · TypeScript
-   基於官方 DeepSeek Harness 打造的 Electron 桌面端，深度適配 macOS 與 Windows，提供最佳的、開箱即用的體驗。
+1. **[cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design)** — +10⭐ · HTML
+   Claude Code 的 29 種編輯圖表類型。自包含的 HTML + SVG。不使用陰影，也不含 Mermaid 混亂。
 
-1. **[ifixai-ai/iFixAi](https://github.com/ifixai-ai/iFixAi)** — +6⭐ · Python
-   AI 代理的獨立審計。由人類或代理自身執行，以回答 AI 代理經濟中最關鍵的問題：代理是否在做應該做的事？使用 iFixAi，您可以在不到 120 秒內得到答案。
+1. **[anywhere-labs/deepseek-harness-desktop](https://github.com/anywhere-labs/deepseek-harness-desktop)** — +9⭐ · TypeScript
+   基於官方 DeepSeek Harness 打造的 Electron 桌面端，深度適配 macOS 與 Windows，提供最佳、開箱即用的體驗。
 
-1. **[guillaumemeyer/watermarks-remover](https://github.com/guillaumemeyer/watermarks-remover)** — +5⭐ · Python
-   去除多供應商 AI 來源標記：Unicode 文本衛生、統計重寫鉤子，以及從 PNG/JPEG/SVG/PDF/DOCX/HTML/MD 中提取的 C2PA/metadata。
+1. **[mukul975/Anthropic-Cybersecurity-Skills](https://github.com/mukul975/Anthropic-Cybersecurity-Skills)** — +8⭐ · Python
+   817 種結構化網路安全技能，供 AI 代理使用。對應 6 個框架：MITRE ATT&CK、NIST CSF 2.0、MITRE ATLAS、D3FEND、NIST AI RMF 與 MITRE F3（Fight Fraud）。符合 agentskills.io 標準，可與 Claude Code、GitHub Copilot、Codex CLI、Cursor、Gemini CLI 等 20+ 平台配合使用。涵蓋 29 個安全領域，採用 Apache 2.0 授權。
 
-1. **[internet-court/internet-court-skill](https://github.com/internet-court/internet-court-skill)** — +5⭐ · TypeScript
-   Agent-to-agent 商務的信任層——自然語言授權、ERC‑7710 授權委派、x402 支付、托管以及爭議解決，作為一個開放式、全能的 Agent Skill / Claude Code 插件。
+1. **[volcengine/OpenViking](https://github.com/volcengine/OpenViking)** — +7⭐ · Python
+   AI 代理的自我演化上下文資料庫。統一代理記憶、知識 RAG 與技能。
 
-1. **[openTrinity/mycontext](https://github.com/openTrinity/mycontext)** — +4⭐ · TypeScript
-   MyContext 是一款以本地優先為核心的桌面應用程式，用於日常溝通與知識工作。
+1. **[stablyai/orca](https://github.com/stablyai/orca)** — +6⭐ · TypeScript
+   Orca 是用於管理多個平行代理的 ADE。使用您自己的訂閱執行任何編碼代理，支援桌面與手機。
 
-1. **[zhaoxuya520/reverse-skill](https://github.com/zhaoxuya520/reverse-skill)** — +4⭐ · PowerShell
-   逆向工程／授權滲透測試／安全研究技能路由包：AI 驅動的路由 + 按需工具鏈自啟 + 自我進化知識庫，支援 Claude Code、Kiro、Cursor、Cline 及其他 AI 編碼客戶端。
+1. **[virgiliojr94/book-to-skill](https://github.com/virgiliojr94/book-to-skill)** — +5⭐ · Python
+   將任何技術書籍的 PDF 轉換為 Claude Code 技能——隨時可用於學習、參考與工作。
 
-1. **[stablyai/orca](https://github.com/stablyai/orca)** — +3⭐ · TypeScript
-   Orca 是用於管理多個平行代理的 ADE。您可以使用自己的訂閱運行任何編碼代理，並在桌面與手機上使用。
+1. **[AprilNEA/OpenLogi](https://github.com/AprilNEA/OpenLogi)** — +4⭐ · Rust
+   ⚡️一款原生、本地優先的 Logitech Options+ 替代品，使用 Rust 編寫🦀——可透過 HID++ 重新映射按鍵、DPI 與 SmartShift。無帳號、無遙測。
 
-1. **[tt-a1i/archify](https://github.com/tt-a1i/archify)** — +3⭐ · HTML
-   Agent 技能，用於創建美觀、可驗證的架構圖、工作流程、序列、資料流和生命週期圖——自包含的帶動作的 HTML，並提供清晰輸出。
+1. **[bojieli/ai-agent-book](https://github.com/bojieli/ai-agent-book)** — +4⭐ · Python
+   《深入理解 AI Agent：設計原理與工程實踐》（李博杰 著）開源主倉庫：全書正文、編譯版 PDF 與按章配套程式碼。
 
-1. **[lightningpixel/modly](https://github.com/lightningpixel/modly)** — +3⭐ · TypeScript
-   桌面應用程式，可使用本地 AI 從影像生成 3D 模型——完全在您的 GPU 上運行。
+1. **[chaitanyagiri/munder-difflin](https://github.com/chaitanyagiri/munder-difflin)** — +4⭐ · TypeScript
+   本地多代理 Harness
 
-1. **[holaboss-ai/holaOS](https://github.com/holaboss-ai/holaOS)** — +3⭐ · TypeScript
-   開源的全能 AI 代理工作空間。可運行任何代理—Claude Code、Codex—跨越您所有工具（100+ 整合 + MCP）、應用程式、瀏覽器與檔案，並提供共享記憶體。內建模型或 BYOK。
+1. **[diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)** — +4⭐ · TypeScript
+   永不停止編碼。免費 MIT AI 閘道：一個端點，290+ 提供者（90+ 免費），500+ 模型——Kimi、Claude、GPT、OpenAI、Gemini、GLM、DeepSeek、MiniMax。支援 Claude Code、Codex、Cursor、OpenCode、Cline 與 Copilot。具備配額感知自動回退，RTK+Caveman 壓縮可節省 15-95% tokens，MCP/A2A，桌面/PWA。由 500+ 貢獻者打造。
