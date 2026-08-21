@@ -6,34 +6,35 @@ permalink: /github-trending/
 
 # GitHub 每日趨勢 Top 10
 
-更新日期：2026-08-21（每日自動更新，依過去 24 小時星數增量排名）
+更新日期：2026-08-22（每日自動更新，依過去 24 小時星數增量排名）
 
-
-1. **[cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design)** — +12⭐ · HTML
-   Claude Code 的 29 種編輯圖表類型。自包含的 HTML + SVG。不使用陰影，也不含 Mermaid 混亂。
-
-1. **[AprilNEA/OpenLogi](https://github.com/AprilNEA/OpenLogi)** — +10⭐ · Rust
-   ⚡️一款原生、以本機為先的 Logitech Options+ 替代方案，使用 Rust 編寫 🦀 —— 透過 HID++ 重映射按鍵、DPI 與 SmartShift。無帳號、無遙測。
-
-1. **[guillaumemeyer/watermarks-remover](https://github.com/guillaumemeyer/watermarks-remover)** — +8⭐ · Python
-   移除多廠商 AI 來源標記：Unicode 文本衛生、統計重寫鉤子，以及從 PNG/JPEG/SVG/PDF/DOCX/HTML/MD 擷取的 C2PA/metadata。
-
-1. **[volcengine/OpenViking](https://github.com/volcengine/OpenViking)** — +7⭐ · Python
-   AI 代理自我演化的上下文資料庫。統一代理記憶、知識 RAG 與技能。
-
-1. **[stablyai/orca](https://github.com/stablyai/orca)** — +7⭐ · TypeScript
-   Orca 是用於管理多個平行代理的 ADE。使用您自己的訂閱執行任何編碼代理。支援桌面與手機。
 
 1. **[anywhere-labs/deepseek-harness-desktop](https://github.com/anywhere-labs/deepseek-harness-desktop)** — +7⭐ · TypeScript
-   基於官方 DeepSeek Harness 打造的 Electron 桌面端，深度適配 macOS 和 Windows，提供最佳的、開箱即用的體驗。
+   基於官方 DeepSeek Harness 打造的 Electron 桌面端，深度適配 macOS 與 Windows，提供最佳的開箱即用體驗。
 
-1. **[walkinglabs/learn-harness-engineering](https://github.com/walkinglabs/learn-harness-engineering)** — +6⭐ · TypeScript
-   Harness 工程入門教學，從零到一。
+1. **[akitaonrails/ai-memory](https://github.com/akitaonrails/ai-memory)** — +5⭐ · Rust
+   針對代理程式編碼 CLI 的長期記憶解決方案，並促進不同代理商之間的交接。
 
-1. **[arvin341az-glitch/RVG](https://github.com/arvin341az-glitch/RVG)** — +5⭐ · Python
+1. **[zenbu-labs/terminal-browser](https://github.com/zenbu-labs/terminal-browser)** — +5⭐ · Rust
+   一個可直接在你現有終端機內執行的瀏覽器。
 
-1. **[calesthio/OpenMontage](https://github.com/calesthio/OpenMontage)** — +5⭐ · Python
-   全球首個開源、代理式影片製作系統。擁有 12 條製作流程、超過 100 個工具以及 700 多個代理技能與製作知識檔案。將您的 AI 編碼助手變成完整的影片製作工作室。
+1. **[cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design)** — +4⭐ · HTML
+   Claude Code 的 29 種編輯圖表類型。自包含的 HTML + SVG，無陰影、無 Mermaid 雜訊。
 
-1. **[Tiger3807861189/J-Space-Cognition-Suite-V3.6](https://github.com/Tiger3807861189/J-Space-Cognition-Suite-V3.6)** — +5⭐ · Python
-   J-Space Cognition Suite V3.6 - 基於 Anthropic 的 J-space 全球工作空間研究的 AI 認知增強技能。| 哔哩哔哩：Tiger380 (UID 3494375382321675) — https://space.bilibili.com/3494375382321675
+1. **[xdreizein666/getcontact-cli](https://github.com/xdreizein666/getcontact-cli)** — +4⭐ · Python
+   GetContact CLI 是一個 Python 專案，用於透過 GetContact API 進行電話號碼查詢，無需 Android 應用程式，也不需要瀏覽器。
+
+1. **[bojieli/ai-agent-book](https://github.com/bojieli/ai-agent-book)** — +4⭐ · Python
+   《深入理解 AI Agent：設計原理與工程實踐》（李博杰 著）開源主倉庫：全書正文、編譯版 PDF 與按章配套程式碼。
+
+1. **[vectorize-io/hindsight](https://github.com/vectorize-io/hindsight)** — +3⭐ · Python
+   Hindsight：能學習的代理記憶。
+
+1. **[hugohe3/ppt-master](https://github.com/hugohe3/ppt-master)** — +3⭐ · Python
+   AI 將文件或主題轉換為真實、原生的 PowerPoint 簡報——具備原生形狀、過渡與動畫，按需提供資料支援的圖表和表格，從講者筆記中提取音訊旁白，以及支援你自己的 .pptx 模板。· 由 Hugo He
+
+1. **[tt-a1i/archify](https://github.com/tt-a1i/archify)** — +3⭐ · HTML
+   Agent 技能，打造美觀且可驗證的架構、工作流程、序列、資料流及生命週期圖表—自包含的 HTML，帶有動畫與清晰匯出功能。
+
+1. **[holaboss-ai/holaOS](https://github.com/holaboss-ai/holaOS)** — +3⭐ · TypeScript
+   開源全能 AI 代理工作空間。可在你的工具（100+ 整合 + MCP）、應用程式、瀏覽器與檔案中執行任何代理——Claude Code、Codex，並共享記憶體。內建模型或 BYOK。
