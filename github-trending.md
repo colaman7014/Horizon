@@ -6,35 +6,35 @@ permalink: /github-trending/
 
 # GitHub 每日趨勢 Top 10
 
-更新日期：2026-08-22（每日自動更新，依過去 24 小時星數增量排名）
+更新日期：2026-08-23（每日自動更新，依過去 24 小時星數增量排名）
 
 
-1. **[anywhere-labs/deepseek-harness-desktop](https://github.com/anywhere-labs/deepseek-harness-desktop)** — +7⭐ · TypeScript
-   基於官方 DeepSeek Harness 打造的 Electron 桌面端，深度適配 macOS 與 Windows，提供最佳的開箱即用體驗。
+1. **[anywhere-labs/deepseek-harness-desktop](https://github.com/anywhere-labs/deepseek-harness-desktop)** — +15⭐ · TypeScript
+   基於官方 DeepSeek Harness 打造的 Electron 桌面端，深度適配 macOS 與 Windows，提供最佳的、開箱即用的體驗。
 
-1. **[akitaonrails/ai-memory](https://github.com/akitaonrails/ai-memory)** — +5⭐ · Rust
-   針對代理程式編碼 CLI 的長期記憶解決方案，並促進不同代理商之間的交接。
+1. **[guillaumemeyer/watermarks-remover](https://github.com/guillaumemeyer/watermarks-remover)** — +14⭐ · Python
+   移除多供應商 AI 來源標記：Unicode 文字衛生、統計重寫鉤子，以及 PNG/JPEG/SVG/PDF/DOCX/HTML/MD 的 C2PA/metadata
 
-1. **[zenbu-labs/terminal-browser](https://github.com/zenbu-labs/terminal-browser)** — +5⭐ · Rust
-   一個可直接在你現有終端機內執行的瀏覽器。
+1. **[AprilNEA/OpenLogi](https://github.com/AprilNEA/OpenLogi)** — +12⭐ · Rust
+   ⚡️本地優先的原生替代方案，取代 Logitech Options+，由 Rust 編寫 — 在 HID++ 上重新映射按鈕、DPI 與 SmartShift。無帳戶、無遙測。
 
-1. **[cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design)** — +4⭐ · HTML
-   Claude Code 的 29 種編輯圖表類型。自包含的 HTML + SVG，無陰影、無 Mermaid 雜訊。
+1. **[Wei-Shaw/sub2api](https://github.com/Wei-Shaw/sub2api)** — +11⭐ · Go
+   Sub2API 一站式開源中轉服務，讓 Claude、OpenAI、Gemini、Grok 訂閱統一接入，支援拼車共享，更高效分攤成本，原生工具無縫使用。
 
-1. **[xdreizein666/getcontact-cli](https://github.com/xdreizein666/getcontact-cli)** — +4⭐ · Python
-   GetContact CLI 是一個 Python 專案，用於透過 GetContact API 進行電話號碼查詢，無需 Android 應用程式，也不需要瀏覽器。
+1. **[pathwaycom/arc-task-gen](https://github.com/pathwaycom/arc-task-gen)** — +11⭐ · Python
+   生成原始的 ARC-AGI-1 樣式任務，並以分佈與公開評估集相匹配。
 
-1. **[bojieli/ai-agent-book](https://github.com/bojieli/ai-agent-book)** — +4⭐ · Python
-   《深入理解 AI Agent：設計原理與工程實踐》（李博杰 著）開源主倉庫：全書正文、編譯版 PDF 與按章配套程式碼。
+1. **[cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design)** — +10⭐ · HTML
+   Claude Code 的 29 種編輯圖表類型。自包含的 HTML + SVG，無陰影、無 Mermaid 混亂。
 
-1. **[vectorize-io/hindsight](https://github.com/vectorize-io/hindsight)** — +3⭐ · Python
-   Hindsight：能學習的代理記憶。
+1. **[citrolabs/ego-lite](https://github.com/citrolabs/ego-lite)** — +9⭐ · JavaScript
+   最快速的瀏覽器，為 AI 代理執行瀏覽器自動化而設計，可與 AI 代理（如 Codex 或 Claude Code）共享已登入的瀏覽器狀態，而不會打擾你。零成本、零設定。
 
-1. **[hugohe3/ppt-master](https://github.com/hugohe3/ppt-master)** — +3⭐ · Python
-   AI 將文件或主題轉換為真實、原生的 PowerPoint 簡報——具備原生形狀、過渡與動畫，按需提供資料支援的圖表和表格，從講者筆記中提取音訊旁白，以及支援你自己的 .pptx 模板。· 由 Hugo He
+1. **[stablyai/orca](https://github.com/stablyai/orca)** — +9⭐ · TypeScript
+   Orca 是用於管理多個平行代理的 ADE（Agent Development Environment）。使用自己的訂閱執行任何編碼代理，並可在桌面與移動裝置上使用。
 
-1. **[tt-a1i/archify](https://github.com/tt-a1i/archify)** — +3⭐ · HTML
-   Agent 技能，打造美觀且可驗證的架構、工作流程、序列、資料流及生命週期圖表—自包含的 HTML，帶有動畫與清晰匯出功能。
+1. **[HiThink-Tech/Financial-API](https://github.com/HiThink-Tech/Financial-API)** — +9⭐ · TypeScript
+   Tonghuashun (HiThink) 官方 A 股金融資料服務，提供股票即時行情、歷史行情、財務報表、指數、板塊、漲停等資料，適用於 AI 代理、量化研究與應用開發，支援 API、MCP、CLI 與 Python。
 
-1. **[holaboss-ai/holaOS](https://github.com/holaboss-ai/holaOS)** — +3⭐ · TypeScript
-   開源全能 AI 代理工作空間。可在你的工具（100+ 整合 + MCP）、應用程式、瀏覽器與檔案中執行任何代理——Claude Code、Codex，並共享記憶體。內建模型或 BYOK。
+1. **[agentrhq/webcmd](https://github.com/agentrhq/webcmd)** — +8⭐ · JavaScript
+   學習並可將代幣消耗削減高達 90% 的瀏覽器基礎設施。
