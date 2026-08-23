@@ -6,35 +6,35 @@ permalink: /github-trending/
 
 # GitHub 每日趨勢 Top 10
 
-更新日期：2026-08-23（每日自動更新，依過去 24 小時星數增量排名）
+更新日期：2026-08-24（每日自動更新，依過去 24 小時星數增量排名）
 
 
-1. **[anywhere-labs/deepseek-harness-desktop](https://github.com/anywhere-labs/deepseek-harness-desktop)** — +15⭐ · TypeScript
-   基於官方 DeepSeek Harness 打造的 Electron 桌面端，深度適配 macOS 與 Windows，提供最佳的、開箱即用的體驗。
+1. **[vorssaint/vorssaint-utils](https://github.com/vorssaint/vorssaint-utils)** — +3⭐ · Swift
+   免費且開源的 macOS 選單列工具集。
 
-1. **[guillaumemeyer/watermarks-remover](https://github.com/guillaumemeyer/watermarks-remover)** — +14⭐ · Python
-   移除多供應商 AI 來源標記：Unicode 文字衛生、統計重寫鉤子，以及 PNG/JPEG/SVG/PDF/DOCX/HTML/MD 的 C2PA/metadata
+1. **[virgiliojr94/book-to-skill](https://github.com/virgiliojr94/book-to-skill)** — +3⭐ · Python
+   將任何技術書籍 PDF 轉換為 Claude Code 技能—隨時準備好供您學習、參考並在工作時使用。
 
-1. **[AprilNEA/OpenLogi](https://github.com/AprilNEA/OpenLogi)** — +12⭐ · Rust
-   ⚡️本地優先的原生替代方案，取代 Logitech Options+，由 Rust 編寫 — 在 HID++ 上重新映射按鈕、DPI 與 SmartShift。無帳戶、無遙測。
+1. **[firecrawl/anydoc](https://github.com/firecrawl/anydoc)** — +2⭐ · Rust
+   將 Word、PowerPoint、Excel、OpenDocument、RTF、EPUB、CSV 與 PDF 轉換成乾淨的 Markdown。使用 Rust 開發，並提供 Node.js 與 Python 綁定。
 
-1. **[Wei-Shaw/sub2api](https://github.com/Wei-Shaw/sub2api)** — +11⭐ · Go
-   Sub2API 一站式開源中轉服務，讓 Claude、OpenAI、Gemini、Grok 訂閱統一接入，支援拼車共享，更高效分攤成本，原生工具無縫使用。
+1. **[JustVugg/colibri](https://github.com/JustVugg/colibri)** — +2⭐ · C
+   在您已擁有的硬體上執行 frontier MoE 模型—純 C 語言，零依賴，專家模型從磁碟串流載入。小巧引擎，龐大模型。🐦
 
-1. **[pathwaycom/arc-task-gen](https://github.com/pathwaycom/arc-task-gen)** — +11⭐ · Python
-   生成原始的 ARC-AGI-1 樣式任務，並以分佈與公開評估集相匹配。
+1. **[bookorbit/bookorbit](https://github.com/bookorbit/bookorbit)** — +2⭐ · TypeScript
+   BookOrbit：您的閱讀空間
 
-1. **[cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design)** — +10⭐ · HTML
-   Claude Code 的 29 種編輯圖表類型。自包含的 HTML + SVG，無陰影、無 Mermaid 混亂。
+1. **[cactus-compute/needle](https://github.com/cactus-compute/needle)** — +2⭐ · Python
+   為小型裝置（手機、可穿戴設備、智慧家庭與機器人）打造的 14MB 基礎模型。
 
-1. **[citrolabs/ego-lite](https://github.com/citrolabs/ego-lite)** — +9⭐ · JavaScript
-   最快速的瀏覽器，為 AI 代理執行瀏覽器自動化而設計，可與 AI 代理（如 Codex 或 Claude Code）共享已登入的瀏覽器狀態，而不會打擾你。零成本、零設定。
+1. **[Untrivial-ai/agent-orchestrator](https://github.com/Untrivial-ai/agent-orchestrator)** — +2⭐ · Go
+   Agent IDE 讓您管理多個編寫程式代理的隊列。它配備了能夠規劃任務、啟動代理並自主處理 CI 修復、合併衝突與程式碼審查的代理協調器。
 
-1. **[stablyai/orca](https://github.com/stablyai/orca)** — +9⭐ · TypeScript
-   Orca 是用於管理多個平行代理的 ADE（Agent Development Environment）。使用自己的訂閱執行任何編碼代理，並可在桌面與移動裝置上使用。
+1. **[awesome-dsh-plugin/awesome-dsh-plugin](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin)** — +2⭐ · Python
+   DeepSeek Harness（dsh）的插件精選列表
 
-1. **[HiThink-Tech/Financial-API](https://github.com/HiThink-Tech/Financial-API)** — +9⭐ · TypeScript
-   Tonghuashun (HiThink) 官方 A 股金融資料服務，提供股票即時行情、歷史行情、財務報表、指數、板塊、漲停等資料，適用於 AI 代理、量化研究與應用開發，支援 API、MCP、CLI 與 Python。
+1. **[cosmicstack-labs/mercury-agent-skills](https://github.com/cosmicstack-labs/mercury-agent-skills)** — +1⭐ · JavaScript
+   一個精心策劃的可重用 Mercury Agent、Open Claw 或 Hermes Agent 技能註冊表，設計為支援真實開發者工作流程、持久記憶體與高效令牌執行。
 
-1. **[agentrhq/webcmd](https://github.com/agentrhq/webcmd)** — +8⭐ · JavaScript
-   學習並可將代幣消耗削減高達 90% 的瀏覽器基礎設施。
+1. **[lance0/ttl](https://github.com/lance0/ttl)** — +1⭐ · Rust
+   快速、現代的 traceroute，具備即時 TUI、逐跳統計、ASN/地理位置查詢、ECMP 檢測與 MPLS 標籤解析。更優秀的 mtr。
