@@ -202,6 +202,79 @@ class TestOpenAIClientComplete:
 
         call_kwargs = mock_create.call_args[1]
         assert call_kwargs.get("response_format") == {"type": "json_object"}
+    def test_ollama_sends_configured_reasoning_effort(self, monkeypatch):
+        client = OpenAIClient(_make_ollama_config(reasoning_effort="none"))
+
+        mock_response = MagicMock()
+        mock_response.choices = [MagicMock()]
+        mock_response.choices[0].message.content = '{"score": 8}'
+        mock_response.usage.prompt_tokens = 1
+        mock_response.usage.completion_tokens = 1
+
+        with patch.object(
+            client.client.chat.completions, "create", new_callable=AsyncMock
+        ) as mock_create:
+            mock_create.return_value = mock_response
+            asyncio.run(client.complete(system="test", user="hello"))
+
+        assert mock_create.call_args[1]["reasoning_effort"] == "none"
+
+    def test_ollama_omits_reasoning_effort_by_default(self, monkeypatch):
+        client = OpenAIClient(_make_ollama_config())
+
+        mock_response = MagicMock()
+        mock_response.choices = [MagicMock()]
+        mock_response.choices[0].message.content = '{"score": 8}'
+        mock_response.usage.prompt_tokens = 1
+        mock_response.usage.completion_tokens = 1
+
+        with patch.object(
+            client.client.chat.completions, "create", new_callable=AsyncMock
+        ) as mock_create:
+            mock_create.return_value = mock_response
+            asyncio.run(client.complete(system="test", user="hello"))
+
+        assert "reasoning_effort" not in mock_create.call_args[1]
+    def test_ollama_omits_response_format(self, monkeypatch):
+        client = OpenAIClient(_make_ollama_config(model="gpt-oss:20b"))
+
+        mock_response = MagicMock()
+        mock_response.choices = [MagicMock()]
+        mock_response.choices[0].message.content = '{"score": 8}'
+        mock_response.usage.prompt_tokens = 1
+        mock_response.usage.completion_tokens = 1
+
+        with patch.object(
+            client.client.chat.completions, "create", new_callable=AsyncMock
+        ) as mock_create:
+            mock_create.return_value = mock_response
+            asyncio.run(client.complete(system="test", user="hello"))
+
+        assert "response_format" not in mock_create.call_args[1]
+
+
+    def test_non_ollama_ignores_reasoning_effort(self, monkeypatch):
+        monkeypatch.setenv("OPENAI_API_KEY", "test-key")
+        client = OpenAIClient(_make_config(
+            provider=AIProvider.OPENAI,
+            api_key_env="OPENAI_API_KEY",
+            reasoning_effort="none",
+        ))
+
+        mock_response = MagicMock()
+        mock_response.choices = [MagicMock()]
+        mock_response.choices[0].message.content = '{"score": 8}'
+        mock_response.usage.prompt_tokens = 1
+        mock_response.usage.completion_tokens = 1
+
+        with patch.object(
+            client.client.chat.completions, "create", new_callable=AsyncMock
+        ) as mock_create:
+            mock_create.return_value = mock_response
+            asyncio.run(client.complete(system="test", user="hello"))
+
+        assert "reasoning_effort" not in mock_create.call_args[1]
+
 
 
 class TestTemperatureFallback:

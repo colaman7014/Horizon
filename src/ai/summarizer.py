@@ -4,6 +4,7 @@ import re
 from typing import List, Dict
 
 from ..models import ContentItem
+from .prompts import normalize_taiwan_terms
 
 
 _CJK = r"[\u4e00-\u9fff\u3400-\u4dbf]"
@@ -15,6 +16,12 @@ def _pangu(text: str) -> str:
     text = re.sub(rf"({_CJK})({_ASCII})", r"\1 \2", text)
     text = re.sub(rf"({_ASCII})({_CJK})", r"\1 \2", text)
     return text
+
+
+def _report_text(value: object, language: str) -> str:
+    """Render text with Taiwan terminology only for Traditional-Chinese reports."""
+    text = str(value)
+    return normalize_taiwan_terms(text) if language == "zh" else text
 
 
 LABELS = {
@@ -102,7 +109,7 @@ class DailySummarizer:
         toc_entries = []
         for i, item in enumerate(items):
             _t = item.metadata.get(f"title_{language}") or item.title
-            t = str(_t).replace("[", "(").replace("]", ")")
+            t = _report_text(_t, language).replace("[", "(").replace("]", ")")
             if language == "zh":
                 t = _pangu(t)
             score = item.ai_score or "?"
@@ -140,7 +147,10 @@ class DailySummarizer:
 
         entries = []
         for i, item in enumerate(items, start=1):
-            title = str(item.metadata.get(f"title_{language}") or item.title).replace("[", "(").replace("]", ")")
+            title = _report_text(
+                item.metadata.get(f"title_{language}") or item.title,
+                language,
+            ).replace("[", "(").replace("]", ")")
             if language == "zh":
                 title = _pangu(title)
             score = item.ai_score or "?"
@@ -163,22 +173,27 @@ class DailySummarizer:
     def _format_item(self, item: ContentItem, labels: dict, language: str, index: int) -> str:
         """Format a single ContentItem into Markdown."""
         _title = item.metadata.get(f"title_{language}") or item.title
-        title = str(_title).replace("[", "(").replace("]", ")")
+        title = _report_text(_title, language).replace("[", "(").replace("]", ")")
         url = str(item.url)
         score = item.ai_score or "?"
         meta = item.metadata
 
-        summary = (
+        summary = _report_text(
             meta.get(f"detailed_summary_{language}")
             or meta.get("detailed_summary")
             or item.ai_summary
-            or ""
+            or "",
+            language,
         )
-        background = meta.get(f"background_{language}") or meta.get("background") or ""
-        discussion = (
+        background = _report_text(
+            meta.get(f"background_{language}") or meta.get("background") or "",
+            language,
+        )
+        discussion = _report_text(
             meta.get(f"community_discussion_{language}")
             or meta.get("community_discussion")
-            or ""
+            or "",
+            language,
         )
 
         if language == "zh":
@@ -228,7 +243,12 @@ class DailySummarizer:
 
         sources = meta.get("sources") or []
         if sources:
-            items_html = "".join(f'<li><a href="{s["url"]}">{s["title"]}</a></li>\n' for s in sources)
+            items_html = "".join(
+                f'<li><a href="{s["url"]}">'
+                f'{_pangu(_report_text(s["title"], language)) if language == "zh" else _report_text(s["title"], language)}'
+                "</a></li>\n"
+                for s in sources
+            )
             lines += [
                 "",
                 f'<details><summary>{labels["references"]}</summary>\n<ul>\n{items_html}\n</ul>\n</details>',
@@ -239,7 +259,9 @@ class DailySummarizer:
             lines.append(f"**{labels['discussion']}**: {discussion}")
 
         if item.ai_tags:
-            tags_str = ", ".join([f"`#{t}`" for t in item.ai_tags])
+            tags_str = ", ".join(
+                [f"`#{_report_text(t, language)}`" for t in item.ai_tags]
+            )
             lines.append("")
             lines.append(f"**{labels['tags']}**: {tags_str}")
 

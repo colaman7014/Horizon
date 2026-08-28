@@ -558,17 +558,32 @@ class HorizonOrchestrator:
         if not duplicate_groups:
             return items
 
+        # Model JSON may encode numeric indices as strings. Accept only
+        # integer values or integer-form strings; ignore other values.
+        def _coerce_index(value: object) -> Optional[int]:
+            if isinstance(value, int) and not isinstance(value, bool):
+                return value
+            if isinstance(value, str):
+                normalized = value.strip()
+                if normalized and (
+                    normalized.isdigit()
+                    or (normalized.startswith("-") and normalized[1:].isdigit())
+                ):
+                    return int(normalized)
+            return None
+
         # Build a set of indices to drop (all non-primary duplicates)
         drop_indices: set[int] = set()
         for group in duplicate_groups:
             if not isinstance(group, list) or len(group) < 2:
                 continue
-            primary_idx = group[0]
-            if primary_idx < 0 or primary_idx >= len(items):
+            primary_idx = _coerce_index(group[0])
+            if primary_idx is None or primary_idx < 0 or primary_idx >= len(items):
                 continue
             primary = items[primary_idx]
-            for dup_idx in group[1:]:
-                if not isinstance(dup_idx, int) or dup_idx < 0 or dup_idx >= len(items):
+            for dup_value in group[1:]:
+                dup_idx = _coerce_index(dup_value)
+                if dup_idx is None or dup_idx < 0 or dup_idx >= len(items):
                     continue
                 if dup_idx == primary_idx:
                     continue

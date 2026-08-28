@@ -124,6 +124,67 @@ def test_generate_summary_zh_uses_localized_selection_header_and_numeric_date():
     assert "Apr 25, 08:00" not in result
 
 
+
+def test_generate_summary_zh_normalizes_taiwan_terms_only_in_report_text():
+    summarizer = DailySummarizer()
+    item = _make_item(1)
+    item.title = "英偉達 release"
+    item.url = "https://example.com/網絡"
+    item.metadata.update(
+        {
+            "title_zh": "英偉達發布芯片與網絡數據",
+            "detailed_summary_zh": "信息中心使用服務器，內存與帶寬需要升級。",
+            "background_zh": "程序由博通硬件提供支持。",
+            "community_discussion_zh": "運營團隊正在激活新功能。",
+            "sources": [{"url": "https://source.example/網絡", "title": "博通視頻"}],
+        }
+    )
+    item.ai_tags = ["軟件", "硬件"]
+
+    result = _run_async(
+        summarizer.generate_summary(
+            [item],
+            date="2026-04-25",
+            total_fetched=1,
+            language="zh",
+        )
+    )
+
+    report_text = result.replace("https://example.com/網絡", "").replace(
+        "https://source.example/網絡", ""
+    )
+    for forbidden in (
+        "英偉達",
+        "芯片",
+        "網絡",
+        "數據",
+        "信息",
+        "服務器",
+        "內存",
+        "帶寬",
+        "程序",
+        "博通",
+        "硬件",
+        "運營",
+        "激活",
+        "軟件",
+        "視頻",
+    ):
+        assert forbidden not in report_text
+    for expected in (
+        "Nvidia 發布晶片與網路資料",
+        "資訊中心使用伺服器，記憶體與頻寬需要升級。",
+        "程式由 Broadcom 硬體提供支援。",
+        "營運團隊正在啟用新功能。",
+        "Broadcom 影片",
+        "https://example.com/網絡",
+        "https://source.example/網絡",
+    ):
+        assert expected in result
+
+    english = summarizer.generate_webhook_item(item, language="en", index=1, total=1)
+    assert "英偉達 release" in english
+
 def test_generate_empty_summary_zh_uses_localized_analyzed_line():
     summarizer = DailySummarizer()
 

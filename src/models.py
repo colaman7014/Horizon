@@ -106,7 +106,7 @@ class AIConfig(BaseModel):
     api_key_env: str
     temperature: float = 0.3
     max_tokens: int = 4096
-    throttle_sec: float = 0.0
+    reasoning_effort: Optional[str] = None
     analysis_concurrency: int = 1
     enrichment_concurrency: int = 1
     enrichment_top_n: Optional[int] = Field(default=10, gt=0)

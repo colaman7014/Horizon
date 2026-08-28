@@ -1,0 +1,162 @@
+{
+  "version": "1.0",
+  "ai": {
+    "provider": "ollama",
+    "model": "qwen3:30b-a3b",
+    "api_key_env": "",
+    "base_url": "http://host.docker.internal:11434",
+    "temperature": 0.3,
+    "max_tokens": 4096,
+    "throttle_sec": 0,
+    "analysis_concurrency": 1,
+    "enrichment_concurrency": 1,
+    "enrichment_top_n": 10,
+    "enrichment_max_tokens": 8192,
+    "languages": [
+      "zh"
+    ]
+  },
+  "sources": {
+    "github": [],
+    "hackernews": {
+      "enabled": true,
+      "fetch_top_stories": 20,
+      "min_score": 100
+    },
+    "rss": [
+      {
+        "name": "Ars Technica",
+        "url": "https://feeds.arstechnica.com/arstechnica/index",
+        "enabled": true,
+        "category": "tech"
+      },
+      {
+        "name": "Simon Willison",
+        "url": "https://simonwillison.net/atom/everything/",
+        "enabled": true,
+        "category": "tech"
+      },
+      {
+        "name": "MarketWatch Top Stories",
+        "url": "https://feeds.content.dowjones.io/public/rss/mw_topstories",
+        "enabled": true,
+        "category": "finance"
+      },
+      {
+        "name": "WSJ Markets",
+        "url": "https://feeds.a.dj.com/rss/RSSMarketsMain.xml",
+        "enabled": true,
+        "category": "finance"
+      },
+      {
+        "name": "Anue 鉅亨網台股",
+        "url": "https://news.cnyes.com/rss/v1/news/category/tw_stock",
+        "enabled": true,
+        "category": "finance"
+      }
+    ],
+    "reddit": {
+      "enabled": true,
+      "subreddits": [
+        {
+          "subreddit": "LocalLLaMA",
+          "enabled": true,
+          "sort": "hot",
+          "time_filter": "day",
+          "fetch_limit": 10,
+          "min_score": 100
+        },
+        {
+          "subreddit": "stocks",
+          "enabled": true,
+          "sort": "hot",
+          "time_filter": "day",
+          "fetch_limit": 10,
+          "min_score": 100
+        }
+      ],
+      "users": [],
+      "fetch_comments": 5
+    },
+    "telegram": {
+      "enabled": false,
+      "channels": []
+    },
+    "twitter": {
+      "enabled": false,
+      "users": []
+    },
+    "openbb": {
+      "enabled": true,
+      "fetch_filings": false,
+      "filings_provider": "sec",
+      "watchlists": [
+        {
+          "name": "tech-megacaps",
+          "enabled": true,
+          "provider": "yfinance",
+          "fetch_limit": 15,
+          "category": "finance",
+          "symbols": [
+            "AAPL",
+            "MSFT",
+            "NVDA",
+            "GOOGL",
+            "AMZN",
+            "META",
+            "TSLA"
+          ]
+        },
+        {
+          "name": "semiconductors",
+          "enabled": true,
+          "provider": "yfinance",
+          "fetch_limit": 15,
+          "category": "finance",
+          "symbols": [
+            "TSM",
+            "AMD",
+            "ASML",
+            "AVGO",
+            "MU"
+          ]
+        }
+      ]
+    },
+    "ossinsight": {
+      "enabled": true,
+      "period": "past_24_hours",
+      "languages": [
+        "All"
+      ],
+      "keywords": [],
+      "min_stars": 0,
+      "max_items": 10
+    },
+    "gdelt": {
+      "enabled": false
+    },
+    "google_news": {
+      "enabled": true,
+      "query": "台股 OR 美股 OR 半導體 OR 聯準會",
+      "language": "zh-TW",
+      "country": "TW",
+      "max_results": 30,
+      "category": "finance"
+    }
+  },
+  "filtering": {
+    "ai_score_threshold": 6.0,
+    "time_window_hours": 24,
+    "max_items": 40,
+    "category_groups": {},
+    "default_group": "other",
+    "default_group_limit": null,
+    "pre_ai_source_limits": {
+      "openbb/tech-megacaps": 15,
+      "openbb/semiconductors": 15,
+      "rss/Anue 鉅亨網台股": 20,
+      "google_news": 15
+    }
+  }
+}

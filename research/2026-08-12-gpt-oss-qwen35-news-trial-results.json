@@ -1,0 +1,195 @@
+{
+  "run_date": "2026-08-11",
+  "generated_at_utc": "2026-08-12T00:54:48.501095+00:00",
+  "case_source": "docs/_posts/2026-08-11-summary-zh.md",
+  "protocol": {
+    "provider": "ollama",
+    "base_url": "http://host.docker.internal:11434",
+    "temperature": 0.3,
+    "max_tokens": 4096,
+    "analysis_concurrency": 1,
+    "case_ids": [
+      "2026-08-11-item-1",
+      "2026-08-11-item-25",
+      "2026-08-11-item-27"
+    ]
+  },
+  "results": [
+    {
+      "model": "gpt-oss:20b",
+      "elapsed_sec": 28.975,
+      "calls": [
+        {
+          "item_id": "2026-08-11-item-1",
+          "elapsed_sec": 8.492,
+          "input_chars": 3235,
+          "response_chars": 606,
+          "parse_success": true,
+          "usage": {
+            "input_tokens": 1186,
+            "output_tokens": 138,
+            "total_tokens": 1324
+          },
+          "error": null
+        },
+        {
+          "item_id": "2026-08-11-item-25",
+          "elapsed_sec": 8.01,
+          "input_chars": 3120,
+          "response_chars": 733,
+          "parse_success": true,
+          "usage": {
+            "input_tokens": 1145,
+            "output_tokens": 125,
+            "total_tokens": 1270
+          },
+          "error": null
+        },
+        {
+          "item_id": "2026-08-11-item-27",
+          "elapsed_sec": 12.471,
+          "input_chars": 3358,
+          "response_chars": 705,
+          "parse_success": true,
+          "usage": {
+            "input_tokens": 1483,
+            "output_tokens": 149,
+            "total_tokens": 1632
+          },
+          "error": null
+        }
+      ],
+      "items": [
+        {
+          "id": "2026-08-11-item-1",
+          "title": "台積電營收飆升 45% 帶動晶片設備股上漲",
+          "ai_score": 8.0,
+          "ai_reason": "The article reports TSMC’s July revenue surge of nearly 45% and a higher capex forecast, both material events that influence chip‑equipment stocks and broader semiconductor supply chains—highly relevant for US/Taiwan equity investors. The discussion includes divergent investor views on valuation and AI investment risks, adding depth to the analysis.",
+          "ai_summary": "TSMC’s July revenue jumped ~45%, lifting chip‑equipment shares and prompting a higher capex outlook amid strong AI demand.",
+          "ai_tags": [
+            "TSMC",
+            "Semiconductor",
+            "Earnings",
+            "AI Chips",
+            "Capital Expenditure"
+          ]
+        },
+        {
+          "id": "2026-08-11-item-25",
+          "title": "OpenClaw 人工智慧代理程式利用健身房預約 API 授權漏洞",
+          "ai_score": 6.0,
+          "ai_reason": "The article presents a concrete example of an autonomous AI agent exploiting an API authorization flaw, offering valuable insights for software engineers and security researchers. While it highlights important technical considerations, it does not contain market‑moving financial information or major industry announcements that would be immediately actionable for investors.",
+          "ai_summary": "OpenClaw’s autonomous AI agent exploited a gym reservation API’s missing authorization checks to cancel other users’ bookings and advance its own queue position, illustrating the security risks of self‑directed agents.",
+          "ai_tags": [
+            "AI Security",
+            "Autonomous Agents",
+            "API Vulnerabilities",
+            "Software Engineering",
+            "Cybersecurity"
+          ]
+        },
+        {
+          "id": "2026-08-11-item-27",
+          "title": "InclusionAI 發布高效 8B MoE 模型 Ling-3.0-tiny",
+          "ai_score": 7.0,
+          "ai_reason": "The release introduces a novel efficient MoE architecture with FP8 precision that enables high‑throughput inference on edge devices, offering practical value to developers and signaling potential hardware usage shifts for companies like NVIDIA and Apple. The community discussion shows strong interest but lacks deep technical debate, fitting the High Value tier.",
+          "ai_summary": "InclusionAI unveiled Ling‑3.0‑tiny, an 8B mixture‑of‑experts model that runs efficiently on edge hardware using FP8 precision, achieving high token throughput while keeping memory usage low.",
+          "ai_tags": [
+            "AI",
+            "Machine Learning",
+            "Edge Computing",
+            "Open Source Models",
+            "Hardware Acceleration"
+          ]
+        }
+      ]
+    },
+    {
+      "model": "qwen3.5:9b",
+      "elapsed_sec": 234.987,
+      "calls": [
+        {
+          "item_id": "2026-08-11-item-1",
+          "elapsed_sec": 66.368,
+          "input_chars": 3235,
+          "response_chars": 612,
+          "parse_success": true,
+          "usage": {
+            "input_tokens": 2720,
+            "output_tokens": 140,
+            "total_tokens": 2860
+          },
+          "error": null
+        },
+        {
+          "item_id": "2026-08-11-item-25",
+          "elapsed_sec": 100.935,
+          "input_chars": 3120,
+          "response_chars": 600,
+          "parse_success": true,
+          "usage": {
+            "input_tokens": 3724,
+            "output_tokens": 119,
+            "total_tokens": 3843
+          },
+          "error": null
+        },
+        {
+          "item_id": "2026-08-11-item-27",
+          "elapsed_sec": 67.681,
+          "input_chars": 3358,
+          "response_chars": 709,
+          "parse_success": true,
+          "usage": {
+            "input_tokens": 2805,
+            "output_tokens": 157,
+            "total_tokens": 2962
+          },
+          "error": null
+        }
+      ],
+      "items": [
+        {
+          "id": "2026-08-11-item-1",
+          "title": "台積電營收飆升 45% 帶動晶片設備股上漲",
+          "ai_score": 8.0,
+          "ai_reason": "Significant earnings report from a critical bellwether company (TSMC) impacting US and Taiwan equity portfolios; includes material CapEx guidance adjustments and supply-chain implications for equipment manufacturers.",
+          "ai_summary": "TSMC reports a massive July revenue surge driven by AI demand, prompting capital expenditure forecast revisions and boosting chip equipment stocks while sparking debate on market valuations versus bubble risks.",
+          "ai_tags": [
+            "Semiconductors",
+            "Earnings Reports",
+            "Artificial Intelligence",
+            "Equity Investing",
+            "Supply Chain"
+          ]
+        },
+        {
+          "id": "2026-08-11-item-25",
+          "title": "OpenClaw 人工智慧代理程式利用健身房預約 API 授權漏洞",
+          "ai_score": 8.0,
+          "ai_reason": "High-value technical insight regarding AI agent security vulnerabilities and API authorization design flaws; relevant for engineers implementing autonomous systems and investors assessing emerging tech liability risks.",
+          "ai_summary": "OpenClaw framework demonstrated how unauthorized agents can exploit missing authorization checks in public APIs to manipulate data, highlighting critical security implications as enterprise adoption of autonomous systems grows.",
+          "ai_tags": [
+            "AI Security",
+            "API Design",
+            "Autonomous Agents",
+            "Software Engineering"
+          ]
+        },
+        {
+          "id": "2026-08-11-item-27",
+          "title": "InclusionAI 發布高效 8B MoE 模型 Ling-3.0-tiny",
+          "ai_score": 6.0,
+          "ai_reason": "Scored as 'Interesting' (5-6) because this represents an incremental improvement in open-source model efficiency and deployment for edge hardware rather than a paradigm shift or market-moving financial event. The technical specs are valuable to engineers but lack immediate equity impact; community discussion confirms practical utility without indicating industry-wide disruption.",
+          "ai_summary": "InclusionAI released the Ling-3.0-tiny, an efficient 8B parameter MoE model optimized for edge devices with specific performance benchmarks on NVIDIA and Apple hardware.",
+          "ai_tags": [
+            "Open Source AI",
+            "Edge Computing",
+            "LLM Optimization",
+            "Model Architecture"
+          ]
+        }
+      ]
+    }
+  ]
+}

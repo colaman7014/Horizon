@@ -19,7 +19,7 @@ from .client import AIClient
 from .prompts import (
     CONCEPT_EXTRACTION_SYSTEM, CONCEPT_EXTRACTION_USER,
     CONTENT_ENRICHMENT_SYSTEM, CONTENT_ENRICHMENT_USER,
-    TAIWAN_GLOSSARY,
+    TAIWAN_FORBIDDEN_TERMS, TAIWAN_GLOSSARY,
 )
 from .utils import parse_json_response
 from ..models import ContentItem
@@ -145,6 +145,96 @@ class ContentEnricher:
         Returns the parsed dict, or None if all strategies fail.
         """
         return parse_json_response(response)
+    @staticmethod
+    def _field_text(value: object) -> str:
+        """Return generated field text, including structured ``{"text": ...}`` values."""
+        if isinstance(value, dict):
+            value = value.get("text", "")
+        return str(value or "").strip()
+
+    @staticmethod
+    def _valid_source_urls(
+        result: dict,
+        available_urls: dict[str, str],
+    ) -> list[str]:
+        """Keep only citation URLs copied exactly from search results."""
+        sources = result.get("sources")
+        if not isinstance(sources, list):
+            return []
+        return [
+            source
+            for source in sources
+            if isinstance(source, str) and source in available_urls
+        ][:3]
+
+    @classmethod
+    def _validation_issues(
+        cls,
+        result: dict,
+        *,
+        comments_text: str,
+        available_urls: dict[str, str],
+    ) -> list[str]:
+        """Find output defects that warrant one corrective generation attempt."""
+        zh_fields = (
+            "title_zh",
+            "whats_new_zh",
+            "why_it_matters_zh",
+            "key_details_zh",
+            "background_zh",
+            "community_discussion_zh",
+        )
+        required_fields = (
+            "title_zh",
+            "whats_new_zh",
+            "why_it_matters_zh",
+            "key_details_zh",
+        )
+        issues = [
+            f"{field} must not be empty"
+            for field in required_fields
+            if not cls._field_text(result.get(field))
+        ]
+        if comments_text and not cls._field_text(result.get("community_discussion_zh")):
+            issues.append("community_discussion_zh must summarize the supplied comments")
+
+        for field in zh_fields:
+            text = cls._field_text(result.get(field))
+            found = [term for term in TAIWAN_FORBIDDEN_TERMS if term in text]
+            if found:
+                issues.append(
+                    f"{field} contains non-Taiwan terms: {', '.join(found)}"
+                )
+
+        if available_urls and not cls._valid_source_urls(result, available_urls):
+            issues.append(
+                "sources must contain at least one exact URL copied from Web Search Results"
+            )
+        return issues
+
+    @staticmethod
+    def _validation_retry_prompt(
+        user_prompt: str,
+        issues: list[str],
+        available_urls: dict[str, str],
+    ) -> str:
+        """Append precise corrective instructions without changing the source prompt."""
+        lines = "\n".join(f"- {issue}" for issue in issues)
+        allowed_urls = "\n".join(f"- {url}" for url in available_urls)
+        citation_hint = (
+            "\nAllowed citation URLs (copy exactly):\n" + allowed_urls
+            if available_urls
+            else "\nNo citation URL is available; return an empty sources array."
+        )
+        return (
+            f"{user_prompt}\n\n"
+            "VALIDATION FAILURE: regenerate the complete JSON object and fix every issue below.\n"
+            f"{lines}\n"
+            "All *_zh fields must use Traditional Chinese Taiwan terminology. "
+            "Do not omit required fields.\n"
+            f"{citation_hint}"
+        )
+
 
     async def _extract_concepts(self, item: ContentItem, content_text: str) -> List[str]:
         """Ask AI to identify concepts that need explanation.
@@ -247,37 +337,67 @@ class ContentEnricher:
             await self._translate_item(item)
             return
 
+        # Ask once for a complete correction when Chinese terminology,
+        # required fields, community output, or citations fail validation.
+        issues = self._validation_issues(
+            result,
+            comments_text=comments_text,
+            available_urls=available_urls,
+        )
+        if issues:
+            retry_response = await self.client.complete(
+                system=CONTENT_ENRICHMENT_SYSTEM,
+                user=self._validation_retry_prompt(user_prompt, issues, available_urls),
+                max_tokens=self._enrichment_max_tokens(),
+            )
+            retry_result = self._parse_json_response(retry_response)
+            if retry_result is not None:
+                result = retry_result
+                issues = self._validation_issues(
+                    result,
+                    comments_text=comments_text,
+                    available_urls=available_urls,
+                )
+            else:
+                print(
+                    f"Warning: validation retry returned invalid JSON for {item.id}; "
+                    "keeping the original parsed response"
+                )
+        if issues:
+            print(
+                f"Warning: enrichment output for {item.id} still has validation issues: "
+                + "; ".join(issues)
+            )
+
         # Combine structured sub-fields into per-language detailed_summary
         for lang in ("en", "zh"):
-            if result.get(f"title_{lang}"):
-                val = result[f"title_{lang}"]
-                item.metadata[f"title_{lang}"] = val.get("text") or str(val) if isinstance(val, dict) else str(val)
+            title = self._field_text(result.get(f"title_{lang}"))
+            if title:
+                item.metadata[f"title_{lang}"] = title
 
-            parts = []
-            for field in ("whats_new", "why_it_matters", "key_details"):
-                text = result.get(f"{field}_{lang}", "").strip()
-                if text:
-                    parts.append(text)
+            parts = [
+                self._field_text(result.get(f"{field}_{lang}"))
+                for field in ("whats_new", "why_it_matters", "key_details")
+            ]
+            parts = [text for text in parts if text]
             if parts:
                 item.metadata[f"detailed_summary_{lang}"] = " ".join(parts)
 
-            if result.get(f"background_{lang}"):
-                val = result[f"background_{lang}"]
-                item.metadata[f"background_{lang}"] = val.get("text") or str(val) if isinstance(val, dict) else str(val)
+            background = self._field_text(result.get(f"background_{lang}"))
+            if background:
+                item.metadata[f"background_{lang}"] = background
 
-            if result.get(f"community_discussion_{lang}"):
-                val = result[f"community_discussion_{lang}"]
-                item.metadata[f"community_discussion_{lang}"] = val.get("text") or str(val) if isinstance(val, dict) else str(val)
+            community = self._field_text(result.get(f"community_discussion_{lang}"))
+            if community:
+                item.metadata[f"community_discussion_{lang}"] = community
 
-        # Store citation sources — only URLs that actually came from our search results
-        if result.get("sources") and available_urls:
-            valid = [
-                {"url": u, "title": available_urls[u]}
-                for u in result["sources"]
-                if u in available_urls
+        # Store only citation URLs that actually came from our search results.
+        valid_sources = self._valid_source_urls(result, available_urls)
+        if valid_sources:
+            item.metadata["sources"] = [
+                {"url": url, "title": available_urls[url]}
+                for url in valid_sources
             ]
-            if valid:
-                item.metadata["sources"] = valid
 
         # Backward-compatible fallback fields (English as default)
         item.metadata["detailed_summary"] = item.metadata.get("detailed_summary_en", "")

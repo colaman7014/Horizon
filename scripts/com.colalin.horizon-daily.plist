@@ -6,19 +6,22 @@
     <string>com.colalin.horizon-daily</string>
     <key>ProgramArguments</key>
     <array>
-        <!-- caffeinate keeps the Mac awake for the ~2h run after the
-             04:55 pmset scheduled wake (sudo pmset repeat wakeorpoweron
-             MTWRFSU 04:55:00); it releases the assertion when done. -->
+        <!-- caffeinate keeps the Mac fully awake for the daily run after the
+             00:57 pmset scheduled wake (sudo pmset repeat wakeorpoweron
+             MTWRFSU 00:57:00); it releases the assertions when done. -->
         <string>/usr/bin/caffeinate</string>
+        <string>-d</string>
         <string>-i</string>
+        <string>-m</string>
         <string>-s</string>
+        <string>-u</string>
         <string>/bin/bash</string>
         <string>/Users/colalin/repos/Horizon/scripts/daily-run-local.sh</string>
     </array>
     <key>StartCalendarInterval</key>
     <dict>
         <key>Hour</key>
-        <integer>5</integer>
+        <integer>1</integer>
         <key>Minute</key>
         <integer>0</integer>
     </dict>

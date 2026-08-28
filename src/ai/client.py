@@ -192,8 +192,10 @@ class OpenAIClient(AIClient):
         ),
     }
 
-    # Providers that don't support response_format
-    _NO_RESPONSE_FORMAT = {"minimax"}
+    # Providers where response_format is unsupported or unreliable.
+    # Ollama's JSON mode can truncate/mangle gpt-oss reasoning output; the
+    # prompt already requires JSON and the shared parser handles wrappers.
+    _NO_RESPONSE_FORMAT = {"minimax", "ollama"}
 
     # Providers that need temperature clamped to (0, 1]
     _TEMP_CLAMP = {"minimax"}
@@ -230,6 +232,11 @@ class OpenAIClient(AIClient):
         self.temperature = config.temperature
         self.max_tokens = config.max_tokens
         self.provider = config.provider.value
+        self.reasoning_effort = (
+            config.reasoning_effort
+            if config.provider == AIProvider.OLLAMA
+            else None
+        )
         # Some newer models (e.g. Claude Opus 4.7 on Bedrock Converse) reject
         # `temperature`. We learn this on first 400 and stop sending it.
         self._supports_temperature = True
@@ -340,6 +347,8 @@ class OpenAIClient(AIClient):
         request_kwargs[token_param] = max_tokens
         if include_temperature:
             request_kwargs["temperature"] = temperature
+        if self.reasoning_effort:
+            request_kwargs["reasoning_effort"] = self.reasoning_effort
         if self.provider not in self._NO_RESPONSE_FORMAT:
             request_kwargs["response_format"] = {"type": "json_object"}
         return await self.client.chat.completions.create(**request_kwargs)
@@ -662,7 +671,7 @@ def _create_chained_client(config: AIConfig) -> ChainedAIClient:
             base_url=config.base_url,
             temperature=config.temperature,
             max_tokens=config.max_tokens,
-            languages=config.languages,
+            reasoning_effort=config.reasoning_effort,
         )
         chain_configs.append(cfg)
 

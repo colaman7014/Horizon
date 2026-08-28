@@ -7,7 +7,50 @@
 TAIWAN_GLOSSARY = """
 用詞規範（台灣繁體中文）：
 - 公司、產品、品牌名一律保留英文原文，不要音譯或翻成中文（例如寫「Nvidia」，不要寫「英偉達」或「輝達」；寫「Broadcom」，不要寫「博通」）。
-- 一般詞彙使用台灣慣用寫法，避免中國大陸用語：軟件→軟體、硬件→硬體、信息→資訊、程序→程式、默認→預設、視頻→影片、屏幕→螢幕、芯片→晶片、內存→記憶體、服務器→伺服器、網絡→網路、質量→品質。"""
+- 一般詞彙使用台灣慣用寫法，避免中國大陸用語：軟件→軟體、硬件→硬體、信息→資訊、程序→程式、默認→預設、視頻→影片、屏幕→螢幕、芯片→晶片、內存→記憶體、服務器→伺服器、網絡→網路、質量→品質、數據→資料、運營→營運、帶寬→頻寬、激活→啟用、支持→支援、神經網絡→神經網路、晶圖→晶圓。"""
+
+# Deterministic replacements applied only while rendering Traditional-Chinese
+# reports. Keep English output and URLs untouched; report text may include source titles.
+TAIWAN_TERM_REPLACEMENTS = (
+    ("神經網絡", "神經網路"),
+    ("英偉達", "Nvidia"),
+    ("輝達", "Nvidia"),
+    ("博通", "Broadcom"),
+    ("軟件", "軟體"),
+    ("硬件", "硬體"),
+    ("信息", "資訊"),
+    ("程序", "程式"),
+    ("默認", "預設"),
+    ("視頻", "影片"),
+    ("屏幕", "螢幕"),
+    ("芯片", "晶片"),
+    ("內存", "記憶體"),
+    ("服務器", "伺服器"),
+    ("網絡", "網路"),
+    ("質量", "品質"),
+    ("數據", "資料"),
+    ("運營", "營運"),
+    ("帶寬", "頻寬"),
+    ("激活", "啟用"),
+    ("支持", "支援"),
+    ("晶圖", "晶圓"),
+)
+
+
+def normalize_taiwan_terms(text: str) -> str:
+    """Normalize known mainland terms in rendered Traditional-Chinese text."""
+    for source, replacement in TAIWAN_TERM_REPLACEMENTS:
+        text = text.replace(source, replacement)
+    return text
+
+# Terms checked in generated Traditional-Chinese fields. Keep this list in
+# sync with the vocabulary rules above so prompt guidance and validation use
+# the same Taiwan terminology policy.
+TAIWAN_FORBIDDEN_TERMS = (
+    "軟件", "硬件", "信息", "程序", "默認", "視頻", "屏幕", "芯片",
+    "內存", "服務器", "網絡", "質量", "數據", "運營", "帶寬", "激活",
+    "神經網絡", "晶圖", "英偉達", "輝達", "博通", "支持",
+)
 
 TOPIC_DEDUP_SYSTEM = """You are a news deduplication assistant. Identify groups of news items that cover the exact same real-world event, release, or announcement.
 
@@ -165,7 +208,7 @@ Guidelines:
 - ONLY explain concepts and terms that are explicitly mentioned in the title, summary, or content
 - Use the web search results to ensure accuracy, especially for recent projects, tools, or events
 - If the news is self-explanatory and needs no background, return an empty string for both background fields
-- For **sources**: pick 1-3 URLs from the Web Search Results that you actually relied on for the background fields. Only use URLs that appear verbatim in the search results above — do not invent or modify URLs.
+- For **sources**: when Web Search Results contain URLs, return 1-3 exact URL strings copied verbatim from those results and include at least one. If no search result URL is available, return an empty array. Never invent, modify, or use a URL that is not present in the supplied results.
 """ + TAIWAN_GLOSSARY
 
 CONTENT_ENRICHMENT_USER = """Provide a structured bilingual analysis for the following news item.

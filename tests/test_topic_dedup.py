@@ -119,3 +119,20 @@ def test_persistent_parse_failure_returns_items_unchanged(monkeypatch):
     result = asyncio.run(orch.merge_topic_duplicates(items))
 
     assert len(result) == 2
+
+
+class StringIndexAIClient:
+    async def complete(self, system, user, temperature=None, max_tokens=None):
+        return json.dumps({"duplicates": [["0", "1"]]})
+
+
+def test_string_indices_are_normalized_and_merged(monkeypatch):
+    orch = _make_orchestrator()
+    fake = StringIndexAIClient()
+    monkeypatch.setattr(orchestrator_module, "create_ai_client", lambda _cfg: fake)
+
+    items = [_make_item(0, "same story"), _make_item(1, "same story")]
+
+    result = asyncio.run(orch.merge_topic_duplicates(items))
+
+    assert [item.id for item in result] == ["item-0"]

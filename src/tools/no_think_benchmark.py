@@ -16,6 +16,15 @@ from src.ai.utils import parse_json_response
 from src.models import Config, ContentItem, SourceType
 
 
+def _usage_snapshot_dict() -> dict[str, int]:
+    snapshot = get_usage_snapshot()
+    return {
+        "input_tokens": snapshot.total_input_tokens,
+        "output_tokens": snapshot.total_output_tokens,
+        "total_tokens": snapshot.total_tokens,
+    }
+
+
 def build_prompt_variants(system: str, user: str) -> dict[str, tuple[str, str]]:
     """Return the baseline prompt and the candidate /no_think prompt."""
     return {
@@ -53,7 +62,7 @@ def summarize_result(
 async def run_benchmark(
     client: Any,
     *,
-    usage_snapshot: Callable[[], dict[str, int]] = get_usage_snapshot,
+    usage_snapshot: Callable[[], dict[str, int]] = _usage_snapshot_dict,
     system: str = CONTENT_ANALYSIS_SYSTEM,
     user: str,
 ) -> list[dict[str, Any]]:
