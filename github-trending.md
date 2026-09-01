@@ -6,35 +6,35 @@ permalink: /github-trending/
 
 # GitHub 每日趨勢 Top 10
 
-更新日期：2026-08-31（每日自動更新，依過去 24 小時星數增量排名）
+更新日期：2026-09-01（每日自動更新，依過去 24 小時星數增量排名）
 
 
-1. **[tt-a1i/archify](https://github.com/tt-a1i/archify)** — +41⭐ · HTML
-   Agent skill 用於美觀、可驗證的架構、工作流程、序列、資料流和生命週期圖表—自包含的 HTML，帶有動畫和清晰的匯出。
+1. **[THU-MAIC/OpenMAIC](https://github.com/THU-MAIC/OpenMAIC)** — +31⭐ · TypeScript
+   開放式多代理互動教室——只需一鍵，即可獲得沉浸式多代理學習體驗
 
-1. **[bilawalsidhu/gods-eye-view](https://github.com/bilawalsidhu/gods-eye-view)** — +13⭐ · JavaScript
-   在瀏覽器中模擬間諜衛星，唯一不同的是資料是真實的。實時開源空間情報，呈現在逼真的 3D 地球上。
+1. **[tt-a1i/archify](https://github.com/tt-a1i/archify)** — +29⭐ · HTML
+   用於生成美觀且可驗證之架構圖、工作流程圖、時序圖、資料流圖及生命週期圖的代理技能——自包含 HTML，具備動態效果與清晰匯出功能。
 
-1. **[sapientinc/PRAXIST](https://github.com/sapientinc/PRAXIST)** — +11⭐ · Python
-   自動化研究系統，支援可測量、可由電腦執行的研究。
+1. **[K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills)** — +11⭐ · Python
+   將任何 AI 代理轉化為 AI 科學家。全球 170,000 多位科學家使用的科學領域第一代理技能庫。包含 161 項現成可用的驗證技能，以及涵蓋生物學、化學、醫學與藥物發現的 100 多個科學資料庫。相容於 Cursor、Claude Code、Codex、Pi、Antigravity 及開放式 Agent Skills 標準。
 
-1. **[K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills)** — +10⭐ · Python
-   將任何 AI agent 變成 AI Scientist。全球 170,000+ 科學家使用的 #1 科學 Agent Skills 圖書館。161 個即用型已驗證技能，外加 100+ 涵蓋生物、化學、醫學與藥物發現的科學資料庫。支援 Cursor、Claude Code、Codex、Pi、Antigravity 以及開放 Agent Skills 標準。
+1. **[SegFault42/HeliosGen](https://github.com/SegFault42/HeliosGen)** — +9⭐ · TypeScript
+   🏆 自託管生成式 AI 平台。Higgsfield、OpenArt、Freepik 等的免費替代方案。
 
-1. **[workweave/router](https://github.com/workweave/router)** — +9⭐ · Go
-   Agentic 系統的模型路由器。將每個提示路由到正確的模型，耗時 <50ms。僅透過更改端點即可降低 40-70% 成本。
+1. **[freestylefly/awesome-gpt-image-2](https://github.com/freestylefly/awesome-gpt-image-2)** — +9⭐ · JavaScript
+   Prompt as Code | GPT-Image2 工業級提示詞引擎與模板庫，470+ 個案例逆向工程，20+ 套工業級模板，並提煉出 Skills，持續更新中
 
-1. **[hieunc229/mailflare](https://github.com/hieunc229/mailflare)** — +9⭐ · TypeScript
-   基於 Cloudflare 的自訂域名電子郵件客戶端
-
-1. **[zhaoxuya520/reverse-skill](https://github.com/zhaoxuya520/reverse-skill)** — +8⭐ · PowerShell
-   逆向工程 / 授權滲透測試 / 安全研究技能路由包：AI 驅動路由 + 按需工具鏈自引導 + 自我進化知識庫。支援 Claude Code、Kiro、Cursor、Cline 及其他 AI 程式碼客戶端。
+1. **[arcboxlabs/arcbox](https://github.com/arcboxlabs/arcbox)** — +9⭐ · Rust
+   在真實且隔離的機器上執行 AI 代理——擁有獨立的 kernel、檔案系統與網路——啟動時間小於 100ms。本機優先，相容 OCI，純 Rust 開發。
 
 1. **[stablyai/orca](https://github.com/stablyai/orca)** — +8⭐ · TypeScript
-   Orca 是用於管理多個平行代理的 ADE。使用您自己的訂閱執行任何程式碼代理。支援桌面與行動裝置。
+   Orca 是操作並行代理群組的 ADE。使用您自己的訂閱執行任何編碼代理。支援桌面與行動裝置。
 
-1. **[MadsLorentzen/ai-job-search](https://github.com/MadsLorentzen/ai-job-search)** — +7⭐ · Python
-   在您機器上執行的工作搜尋。基於 Claude Code 的 AI 求職框架：評估職缺、量身定制履歷、撰寫求職信、準備面試。Fork 並擁有它。
+1. **[sapientinc/PRAXIST](https://github.com/sapientinc/PRAXIST)** — +8⭐ · Python
+   用於可量化、可電腦執行之研究的自主研究系統。
 
-1. **[calesthio/OpenMontage](https://github.com/calesthio/OpenMontage)** — +7⭐ · Python
-   全球首個開源、agentic 視頻製作系統。12 條製作流程、100+ 工具、700+ 代理技能與製作知識檔案。將您的 AI 程式碼助手變成完整的視頻製作工作室。
+1. **[laoma2053/awesome-zhuiju-free](https://github.com/laoma2053/awesome-zhuiju-free)** — +7⭐ · JavaScript
+   免費無廣告的追劇資源指南，人工精選資源、每天檢測資源有效性。收錄線上影視、影視 APP、網盤搜尋、磁力 BT、字幕、TVBox / 影視倉空殼軟體/設定位址、IPTV 直播源、會員拼團、影視相關開源專案。開源，社群共同維護。
+
+1. **[every-app/open-seo](https://github.com/every-app/open-seo)** — +7⭐ · TypeScript
+   Semrush 和 Ahrefs 的開源替代方案
