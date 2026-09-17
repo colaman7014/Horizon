@@ -36,6 +36,7 @@ Common API key variable names:
 | Aliyun DashScope | `DASHSCOPE_API_KEY` |
 | Doubao | `DOUBAO_API_KEY` |
 | DeepSeek | `DEEPSEEK_API_KEY` |
+| MLX-LM | *(not required for local server)* |
 
 **Anthropic Claude**:
 
@@ -159,6 +160,37 @@ not send the field:
 
 Use only values supported by the selected Ollama model. This setting is ignored
 for non-Ollama providers.
+
+**MLX-LM** (local OpenAI-compatible server):
+
+```json
+{
+  "ai": {
+    "provider": "mlx_lm",
+    "model": "mlx-community/Qwen3.8-27B-4bit",
+    "api_key_env": "",
+    "base_url": "http://host.docker.internal:8080/v1",
+    "throttle_sec": 0
+  }
+}
+```
+
+Start MLX-LM separately on the host:
+
+```bash
+mlx_lm.server \
+  --model mlx-community/Qwen3.8-27B-4bit \
+  --host 127.0.0.1 \
+  --port 8080 \
+  --trust-remote-code \
+  --chat-template-args '{"enable_thinking":false}'
+```
+
+The MLX-LM provider uses the local server without an API key. Use
+`http://localhost:8080/v1` when Horizon runs directly on the host; use
+`http://host.docker.internal:8080/v1` when Horizon runs in Docker.
+The `enable_thinking=false` template argument is required because Horizon
+reads the assistant `content` field from the OpenAI-compatible response.
 
 During bilingual enrichment, Horizon validates required Traditional-Chinese
 fields, Taiwan terminology, community summaries when comments are present, and
